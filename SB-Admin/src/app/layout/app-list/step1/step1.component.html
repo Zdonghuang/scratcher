@@ -1,0 +1,55 @@
+<div id="container" [@routerTransition]>
+    <div class="step1">
+      <h3>First step</h3>
+      <br>
+        <fieldset class="form-group">
+            <label> <span class="red"> * </span> App Name</label>
+            <input class="form-control" (change)="appinfo.appName = $event.target.value" value="{{appinfo.appName}}">
+        </fieldset>
+        <fieldset class="form-group">
+            <label> <span class="red"> * </span> App bundleId</label>
+            <input class="form-control" disabled="{{disabled}}" (change)="bundleId($event)" value="{{appinfo.bundleId}}">
+            <p class="red">{{tipsbundleId}}</p>
+        </fieldset>
+        <fieldset class="form-group file">
+            <label>App Icon</label>
+            <input class="form-control image" type="file" accept=".jpeg,.png,.jpg" (change)="upImage($event)">
+            <div>
+              <img src="{{appinfo.image}}" alt="" *ngIf="appinfo.image" width="100" height="100">
+              <img src="assets/images/+_normal@2x.png" width="100" *ngIf="!appinfo.image">
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <label> <span class="red"> * </span> App version</label>
+            <input class="form-control version" (change)="version($event)" value="{{appinfo.version}}">
+            <p class="red">{{tipsversion}}</p>
+        </fieldset>
+        <fieldset class="form-group">
+            <label>App description</label>
+            <textarea class="form-control text" rows="3" (change)="appinfo.description = $event.target.value">{{appinfo.description}}</textarea>
+        </fieldset>
+        <span class="back" (click)="goback()">
+          <img class="left" src="assets/images/prev@2x.png" alt="">
+          <span>Go back</span>
+        </span>
+        <span class="nextstep" (click)="gostep2()">
+          <img class="right" src="assets/images/next@2x.png" alt="">
+          <span>Next step</span>
+        </span>
+        <br>
+        <br>
+    </div>
+    <div class="step1right" *ngIf="step1right">
+        <h3>Explain</h3>
+        <p>Create your App using the form on the left</p>
+        <p class="txt"><span>1</span>(necessary App Name) No more than 30 characters in Chinese, English and numerals, it can only contain letters and numbers and can not start with special symbols.</p>
+        <p class="txt"><span>2</span>(necessary App bundleId) App's unique identification format is (com. example. app).</p>
+        <p class="txt"><span>3</span>(Non-essential App picture)App's default icon size is 100*100px in JPG/PNG/GIF and no more than one MB in size.</p>
+        <p class="txt"><span>4</span>(necessary App version) App's version numbers such as (1.0, 1.0.0, 1.0.0.0).</p>
+        <p class="txt"><span>5</span>(Non-essential App description)App's Description Information.</p>
+        <h6><span class="red">Warning! </span> Necessary content should not be empty, otherwise it will not go to the next step.</h6>
+    </div>
+    <div *ngIf="showtext" class="tiptext">
+      {{text}}
+    </div>
+</div>

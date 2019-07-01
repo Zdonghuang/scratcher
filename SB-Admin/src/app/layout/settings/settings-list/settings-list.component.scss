@@ -1,0 +1,148 @@
+.set{
+  padding: 20px;
+  >table.table{
+    width: 98%;
+    margin: 0 auto;
+  }
+}
+.bigbox{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top:0;
+  left: 0;
+  height:100%;
+  width:100%;
+  z-index: 100000000;
+  overflow-y: auto;
+}
+.bigbox{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top:50%;
+  left: 50%;
+  height:100%;
+  width:100%;
+  transform: translate(-50%,-50%);
+  z-index: 100000000;
+}
+.ltbox{
+  padding: 30px;
+  background:#F5F7F8;
+  position: fixed;
+  border:1px solid #666;
+  border-radius: 4px;
+  top:50%;
+  left: 50%;
+  height:350px;
+  width:400px;
+  transform: translate(-50%,-50%);
+  z-index: 100000000;
+  .done{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+  }
+  .cancel{
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+  }
+  div{
+    .version{
+      margin-left: 20px;
+    }
+  }
+  .apk{
+    .apkfile{
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      top: 86px;
+      left: 116px;
+      opacity: 0;
+      z-index: 10;
+    }
+    img{
+      position: absolute;
+      top: 86px;
+      left: 116px;
+    }
+    p{
+      position: absolute;
+      top: 200px;
+      left: 116px;
+    }
+  }
+}
+.create-btn{
+  margin: 10px 0 0 20px;
+  padding: 10px 30px;
+  background: -webkit-linear-gradient(left, #55ACC8 , #61C3E2); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #55ACC8 , #61C3E2); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #55ACC8 , #61C3E2); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #55ACC8 , #61C3E2); /* 标准的语法（必须放在最后） */
+  border: transparent;
+  color: #fff;
+  i{
+    margin-right: 10px;
+  }
+}
+.cursor{
+  cursor: pointer;
+}
+.bgcimage{
+  width: 20px;
+  height: 20px;
+  background: url('../../../../assets/images/edit@2x.png') no-repeat;
+  background-size: cover;
+}
+.bgcimage:hover{
+  width: 20px;
+  height: 20px;
+  background: url('../../../../assets/images/edit-hover@2x.png') no-repeat;
+  background-size: cover;
+}
+.weight{
+  font-weight: bold;
+  font-size: 18px;
+}
+.litbox{
+  background:#fff;
+  position: absolute;
+  border:1px solid #666;
+  border-radius: 4px;
+  top:50%;
+  left: 50%;
+  height:500px;
+  width:50%;
+  transform: translate(-50%,-50%);
+  z-index: 100000000;
+  padding: 14px 30px;
+  min-width: 550px;
+}
+.first{
+  margin-top: 20px;
+}
+.text{
+  text-align: center;
+}
+.fl{
+  line-height: 34px;
+}
+.fr{
+  float: right;
+  width: 70%;
+}
+.name{
+  cursor: pointer;
+}
+.cancel,.add{
+  position: absolute;
+  bottom: 30px;
+}
+.cancel{
+  right: 110px;
+}
+.add{
+  right: 5%;
+}

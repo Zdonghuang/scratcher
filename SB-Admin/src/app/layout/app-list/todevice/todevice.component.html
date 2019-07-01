@@ -1,0 +1,179 @@
+<div id="container" [@routerTransition]>
+  <p>Application Development</p>
+  <p>App ID: {{appinfo.appId}}</p>
+  <div class="first">
+    <h6>1.Device to be used for development</h6>
+    <img *ngIf="devices.length" class="tree" src="assets/images/tree.png" alt="">
+    <select *ngIf="devices.length" class="form-control" (change)="setdevice($event)">
+      <option value="{{con.uuid}}" *ngFor="let con of devices">{{con.model}}</option>
+    </select>
+    <select *ngIf="!devices.length" class="form-control empty" disabled>
+      <option>Device is empty</option>
+    </select>
+    <div class="jiantou"><i class="fa fa-sort-desc"></i></div>
+    <button class="add_device" (click)="add_device=true">
+        <i class="fa fa-plus"></i>
+      Add device
+    </button>
+    <div *ngIf="add_device" id="add">
+      <div class="content">
+          <h5>Add a new device</h5>
+          <div class="box">
+              <div class="form-group">
+                <label class="fl">1.Select your board</label>
+                <img class="tree" src="assets/images/tree.png" alt="">
+                <select class="form-control">
+                  <option value="Raspberry Pi 3B+"> Raspberry Pi 3B+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>2.Select your OS image</label>
+                <select class="form-control option">
+                  <option value="Raspberry Pi 3B+">scratcher_os_1.0_rpi3bp_20190312.zip</option>
+                </select>
+              </div>
+              <div class="form-group imgbox">
+                <label>3.Write the image to your board following these steps:</label>
+                <img class="flieimg" src="assets/images/copy@2x.png" alt="">
+              </div>
+              <div class="form-group imgbox">
+                <label>4.Connect your device to the network</label>
+              </div>
+              <p class="textcolor">a. If you're using wired network, just plugin your network cable</p>
+              <p class="textcolor">b. If you're using wireless network, please refer to this guide to configure your image</p>
+              <div class="form-group imgbox">
+                <label>5.Connect the power supply</label>
+              </div>
+              <div class="form-group imgbox1">
+                <label>6.Get the device activation pin code</label>
+                <p>a. Connect the supplied LED module to the GPIO headers as shown below</p>
+                <img class="flieimgs" src="assets/images/copy@2x.png" alt="">
+                <p class="tips">(the LED will show the following patterns: =0_1_2_3_4_5_6_7_8_9-,in this case 0123456789 is the pin code)</p>
+                <p>b. Alternatively, you can find the code in the file: /etc/enrol.log (requires a monitor, mouse and keyboard)</p>
+              </div>
+              <p class="weight">7.Enter the number below to enroll the device:</p>
+              <div>
+                <input type="text" class="form-control pin" (change)="pin=$event.target.value">
+                <button class="btn-sm btn-primary" (click)="bindpin()">Activation</button>
+              </div>
+              <div *ngIf="error">
+                <p class="error">Error</p>
+              </div>
+          </div>
+          <div class="show" (click)="add_device=false">
+              <i class="fa fa-fw fa-angle-double-up"></i>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="second">
+   <h6>2.Go to  <a href="https://github.com/leapai/">https://github.com/leapai/</a></h6>
+  </div>
+  <div class="third">
+    <h6>3.Make code changes following the Dev Guide:</h6>
+  </div>
+  <div class="fourth">
+    <h6>4.Choose your workflow</h6>
+    <select class="form-control" *ngIf="workflowlist.length" (change)="setworkflow($event)" [(ngModel)]="aworkflow">
+      <option value="{{con.payloadId}}" *ngFor="let con of workflowlist">{{con.name}}</option>
+    </select>
+    <select class="form-control empty" disabled *ngIf="!workflowlist.length">
+      <option>Workflow is empty</option>
+    </select>
+    <div class="jiantou"><i class="fa fa-sort-desc"></i></div>
+    <button class="add_device" (click)="work_flow=true">
+        <i class="fa fa-plus"></i>
+        Add Workflows
+    </button>
+    <div class="work_flow" *ngIf="work_flow">
+      <div class="form-group name-box">
+          <label for="newname" class="col-form-label">Name:<span *ngIf="emptyNameAlert" class="red"> * </span></label>
+          <input type="text" style="width:40%" class="form-control" id="newname" [(ngModel)]="newName" >
+      </div>
+      <div *ngIf="!iframeLoaded" class="loader-button">
+          <button class="btn btn-primary btn-lg" type="button" disabled>
+              <!-- <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> -->
+              <i class="fa fa-spinner"></i>&nbsp;&nbsp;Loading...
+          </button>
+      </div>
+      <!-- <div class="loader" *ngIf="!iframeLoaded"></div> -->
+  
+      <ng-template #content let-c="close">
+          <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Input a name:</h4>
+          </div>
+          <div class="modal-body">
+              <input type="text" class="form-control" id="wokflow-name" [(ngModel)]="newName">
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+          </div>
+      </ng-template>
+  
+      <div class="editor">
+          <iframe id="nodered" name="nodered" src="/red" frameborder="0" (load)="onIframeLoaded()">go to Node-Red</iframe>
+          <br>
+          <br>
+          <button *ngIf="!onSaving" class="btn-sm btn-success ml-3" (click)="onSave(content)">Save</button>
+          <button *ngIf="onSaving" class="btn btn-success ml-3" type="button" role="status" aria-hidden="true" disabled>
+              <!-- <span class="spinner-border spinner-border-sm"></span> -->
+              <i class="fa fa-spinner"></i>&nbsp;&nbsp;Saving...
+          </button>
+      </div>
+      <br>
+      <div class="show" (click)="work_flow=false">
+        <i class="fa fa-fw fa-angle-double-up"></i>
+      </div>
+    </div>
+  </div>
+  <div class="fifth">
+    <h6>5.Serial port debugging on Ubuntu</h6>
+    <div class="textbox">
+        <span>$ sudo minicom</span>
+        <span>Welcome to minicom 2.7</span>
+        <span>OPTIONS: I18n</span>
+        <span>Compiled on Jan  1 2014, 17:13:19.</span>
+        <span>Port /dev/ttyUSB0, 15:57:00</span>
+        <span>Press CTRL-A Z for help on special keys</span>
+    </div>
+  </div>
+  <div class="sixth">
+    <h6>6.The irefly-RK3399 has 20KB of BootRom and 100KB of internal SRAM, which supports loading systems from the following devices:</h6>
+    <select class="form-control">
+      <option> · SPI interface</option>
+    </select>
+    <div class="jiantous"><i class="fa fa-sort-desc"></i></div>
+  </div>
+  <div class="seventh">
+    <h6>7.Make code changes following the Dev Guide:</h6>
+    <img class="window" src="assets/images/111@2x.png">
+    <p class="text">
+        Note: If the version of the firmware laoder you are programming is inconsistent with the original machine, 
+        please perform "Erase Flash" before upgrading the firmware.
+    </p>
+  </div>
+  <div class="eighth">
+    <h6>
+        8.To force into the MaskRom mode, see the chapter <a href="javascript:">"MaskRom"</a>
+    </h6>
+  </div>
+  <div class="tenth">
+    <h6>9. Please upload your application development kit</h6>
+    <fieldset class="form-group upfile">
+        <br>
+        <input class="form-control tarfile" type="file" runat="server" (change)="uploadfile($event)" accept=".tar.gz,.zip,.apk">
+        <div>
+          <div class="box">
+            <img src="/assets/images/upload_normal@2x.png" alt="">
+            <p>Drag files here or click Upload</p>
+          </div>
+          <div class="loader" *ngIf="busy"></div>
+        </div>
+        <p *ngIf="appfile">{{appfile.name}}</p>
+    </fieldset>
+    <a class="btn rounded-btn submit" href="javascript:" (click)="gostep3()">submit</a>
+  </div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>

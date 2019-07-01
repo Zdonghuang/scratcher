@@ -1,0 +1,142 @@
+<div id="container" [@routerTransition]>
+    <div class="create">
+      <p>Applications</p>
+      <div class="change-type">
+          <button class="btn-sm create-btn" (click)="showTable()">
+            <i class="fa fa-plus"></i>
+            <span>Create Applications</span>
+          </button>
+          <!-- <div class="change">
+              <img src="../../../../assets/images/icon/type1_s.png" alt="" *ngIf="showType==1" (click)="changeType(1)">
+              <img src="../../../../assets/images/icon/type1.png" alt="" *ngIf="showType==2" (click)="changeType(1)">
+              <img src="../../../../assets/images/icon/type2_s.png" alt="" *ngIf="showType==2" (click)="changeType(2)">
+              <img src="../../../../assets/images/icon/type2.png" alt="" *ngIf="showType==1" (click)="changeType(2)">
+          </div> -->
+      </div>
+    </div>
+    <div *ngIf="showType==1">
+        <div class="table-content">
+            <div class="mb-2 table-border table-responsive">
+                <!-- <div class="card-header">My app</div>s -->
+                <table class="card-body table-hover table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="name">Name</th>
+                        <th class="sm-show">App ID</th>
+                        <th>Version</th>
+                        <th class="sm-show">State</th>
+                        <th>Operation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="hand" *ngFor="let con of myAppList">
+                        <!-- <th scope="row">{{con.id}}</th> -->
+                        <td (click)="toappstep(con)" class="name">{{con.appname}}</td>
+                        <td (click)="toappstep(con)" class="sm-show">{{con.appId}}</td>
+                        <td (click)="toappstep(con)">{{con.version}}</td>
+                        <td class="sm-show">{{con.state === 1?'In development':''}}
+                            {{con.state === -1?'Withdrawn':''}}
+                            {{con.state === 2?'Under review':''}}
+                            {{con.state === 3?'Audit failure':''}}
+                            {{con.state === 6?'Has been released':''}}
+                        </td>
+                        <td>
+                            <span (click)="toappstep(con)">
+                                <img src="assets/images/edit@2x.png" width="20">
+                            </span>&nbsp;&nbsp;
+                            <span class="sm-show">
+                                <img src="assets/images/update@2x.png" width="30">
+                            </span>
+                        </td>
+                    </tr>
+                    <!-- <tr class="hand" (click)="toappstep(con)">
+                        <td>con.appname</td>
+                        <td>con.bundleId</td>
+                        <td>con.version</td>
+                        <td>开发中</td>
+                        <td>
+                            <button class="btn-sm btn-edit">
+                                <i class="fa fa-pencil"></i>
+                                <span>Edit</span>
+                            </button>
+                            <button class="btn-sm btn-update">
+                                <i class="fa fa-jsfiddle"></i>
+                                <span>Update</span>
+                            </button>
+                        </td>
+                    </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="center">
+            <ul class="page app-page">
+                <li *ngFor="let i of pagelist" class="pages {{i===1?'active':''}}" (click)="setpage($event)">{{i}}</li>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="showType==2">
+        <div class="centers row apps">
+            <div *ngFor="let con of myAppList" class="app-item app-3">
+                <!-- <img ng-src="{{con.appUrl}}" err-src="../../../../assets/images/icon/ticket.png"/> -->
+                <img src="{{con.appUrl||'../../../../assets/images/icon/ticket.png'}}" alt="">
+                <!-- <img src="../../../../assets/images/icon/ticket.png"> -->
+                <p class="app-name">{{con.appname}}</p>
+                <p class="app-detail">{{con.description?con.description:'暂无描述'}}</p>
+                <p class="app-version">{{con.appId}}</p>
+                <p class="app-version">Version:{{con.version}}</p>
+                <div class="app-state">
+                    <div>
+                        <p>State</p>
+                        <p>{{con.state === 1?'In development':''}}
+                            {{con.state === -1?'Has rescinded':''}}
+                            {{con.state === 2?'Under review':''}}
+                            {{con.state === 3?'Audit failure':''}}
+                            {{con.state === 6?'Has been released':''}}</p>
+                    </div>
+                    <div class="pic-font" (click)="toappstep(con)">
+                        <div>
+                            <img src="../../../../assets/images/icon/edit.png" alt="">
+                            <p>edit</p>
+                        </div>
+                        <div>
+                            <img src="../../../../assets/images/icon/update.png" alt="">
+                            <p>update</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="app-item app-3">
+                <img src="../../../../assets/images/icon/ticket.png">
+                <p class="app-name">Train ticket inquiry</p>
+                <p class="app-detail">Seven seven</p>
+                <p class="app-version">Version:1.0</p>
+                <div class="app-state">
+                    <div>
+                        <p>State</p>
+                        <p>In development</p>
+                    </div>
+                    <div class="pic-font">
+                        <div>
+                            <img src="../../../../assets/images/icon/edit.png" alt="">
+                            <p>edit</p>
+                        </div>
+                        <div>
+                            <img src="../../../../assets/images/icon/update.png" alt="">
+                            <p>update</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="center">
+            <ul class="page app-page">
+                <li *ngFor="let i of pagelist" class="pages {{i===1?'active':''}}" (click)="setpage($event)">{{i}}</li>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="showtext" class="tiptext">
+      {{text}}
+    </div>
+
+</div>

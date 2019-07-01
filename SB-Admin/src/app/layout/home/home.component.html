@@ -1,0 +1,30 @@
+<div class="home">
+  <div class="row">
+    <div class="col col-sm-6">
+      <div class="card mb-3">
+          <div class="card-header">
+              My application
+          </div>
+          <div class="card-body">
+              <canvas *ngIf="doughnutChartData.length" baseChart height="120px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+              </canvas>
+              <h5 style="text-align:center;height: 120px;line-height: 120px" *ngIf="!doughnutChartData.length">It's empty.</h5>
+          </div>
+      </div>
+    </div>
+    <div class="col col-sm-6">
+      <div class="card mb-3">
+        <div class="card-header">
+            My device
+        </div>
+        <div class="card-body">
+            <canvas *ngIf="pieChartData[0]>0||pieChartData[1]>0" baseChart height="120px" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType">
+            </canvas>
+            <h5 style="text-align:center;height: 120px;line-height: 120px" *ngIf="!(pieChartData[0]>0)&&!(pieChartData[1]>0)">
+              It's empty.
+            </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<!-- First, the content of the edit dialog is defined.                       -->
+
+<script type="text/x-red" data-template-name="sendEmail">
+    <!-- By convention, most nodes have a 'name' property. The following div -->
+    <!-- provides the necessary field. Should always be the last option      -->
+
+    <div class="form-row">
+        <label for="node-input-nodeName">Node Name</label>
+        <input type="text" id="node-input-nodeName" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-envelope"></i> To</label>
+        <input type="text" id="node-input-name" placeholder="email@address.com">
+    </div>
+
+</script>
+
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="sendEmail">
+   <!-- data-help-name identifies the node type this help is for             -->
+   <!-- This content appears in the Info sidebar when a node is selected     -->
+   <!-- The first <p> is used as the pop-up tool tip when hovering over a    -->
+   <!-- node in the palette.                                                 -->
+   <p>Simple sample input node. Just sends a single message when it starts up.
+   This is not very useful.</p>
+   <p>Outputs an object called <code>msg</code> containing <code>msg.topic</code> and
+   <code>msg.payload</code>. msg.payload is a String.</p>
+</script>
+
+<!-- Finally, the node type is registered along with all of its properties   -->
+<!-- The example below shows a small subset of the properties that can be set-->
+<script type="text/javascript">
+    RED.nodes.registerType('sendEmail',{
+        category: 'scratcher',      // the palette category
+        defaults: {             // defines the editable properties of the node
+            name: {value:""},   //  along with default values.
+            nodeName: {value:""},
+            topic: {value:"", required:true}
+        },
+        inputs:1,               // set the number of inputs - only 0 or 1
+        outputs:0,              // set the number of outputs - 0 to n
+        color: "rgb(231, 231, 174)",          // set icon color
+        // set the icon (held in icons dir below where you save the node)
+        icon: "envelope.png",     // saved in  icons/myicon.png
+        align: "right",
+        label: function() {     // sets the default label contents
+            return this.nodeName || this.name || "send email";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.nodeName ? "node_label_italic" : "";
+        },
+        displayName: 'send email'
+    });
+</script>

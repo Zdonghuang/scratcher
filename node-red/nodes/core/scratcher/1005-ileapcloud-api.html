@@ -1,0 +1,128 @@
+
+<script type="text/x-red" data-template-name="iLeapCloudApi">
+    <div class="form-row">
+            <label for="node-input-nodeName">Node Name</label>
+            <input type="text" id="node-input-nodeName" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name">API</label>
+        <select id="node-input-name" style="width:125px !important">
+            <option value="auth">auth</option>
+            <option value="news">news</option>
+            <option value="weather">weather</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-payload"><i class="fa fa-envelope"></i> <span data-i18n="common.label.payload"></span></label>
+        <input type="text" id="node-input-payload" style="width:70%">
+        <input type="hidden" id="node-input-payloadType">
+    </div>
+
+    <div class="form-row">
+        <label for=""><i class="fa fa-repeat"></i> <span data-i18n="inject.label.repeat"></span></label>
+        <select id="inject-time-type-select">
+            <option value="none" data-i18n="inject.none"></option>
+            <option value="interval" data-i18n="inject.interval"></option>
+        </select>
+        <input type="hidden" id="node-input-repeat">
+    </div>
+
+    <div class="form-row inject-time-row hidden" id="inject-time-row-interval">
+        <span data-i18n="inject.every"></span>
+        <input id="inject-time-interval-count" class="inject-time-count" value="1"></input>
+        <select style="width:100px" id="inject-time-interval-units">
+            <option value="s" data-i18n="inject.seconds"></option>
+            <option value="m" data-i18n="inject.minutes"></option>
+            <option value="h" data-i18n="inject.hours"></option>
+        </select><br/>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="iLeapCloudApi">
+    <p>ileapcloud api</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('iLeapCloudApi',{
+        category: 'scratcher',
+        defaults: {
+            name: {value:"auth"},
+            nodeName: {value:""},
+            topic: {value:""},
+            payload: {value:""},
+            payloadType: {value:"json"},
+            repeat: {value:"", validate:function(v) { return ((v === "") || (RED.validators.number(v) && (v >= 0) && (v <= 2147483))) }}
+        },
+        color:"BurlyWood",
+        inputs:0,
+        outputs:1,
+        icon: "parser-json.png",
+        label: function() {
+            return this.nodeName || this.name || "api";
+        },
+        labelStyle: function() {
+            return this.nodeName ? "node_label_italic" : "";
+        },
+        oneditprepare: function() {
+            $("#node-input-payload").typedInput({
+                default: 'str',
+                typeField: $("#node-input-payloadType"),
+                types:['json']
+            });
+
+            $("#inject-time-type-select").change(function() {
+                $("#node-input-crontab").val('');
+                var id = $("#inject-time-type-select").val();
+                $(".inject-time-row").hide();
+                $("#inject-time-row-"+id).show();
+                if ((id == "none") || (id == "interval") || (id == "interval-time")) {
+                    $("#node-once").show();
+                }
+                else {
+                    $("#node-once").hide();
+                    $("#node-input-once").prop('checked', false);
+                }
+            });
+
+            var repeattype = "none";
+            if (this.repeat != "" && this.repeat != 0) {
+                repeattype = "interval";
+                var r = "s";
+                var c = this.repeat;
+                if (this.repeat % 60 === 0) { r = "m"; c = c/60; }
+                if (this.repeat % 1440 === 0) { r = "h"; c = c/60; }
+                $("#inject-time-interval-count").val(c);
+                $("#inject-time-interval-units").val(r);
+
+            }
+
+            $(".inject-time-row").hide();
+            $("#inject-time-type-select").val(repeattype);
+            $("#inject-time-row-"+repeattype).show();
+
+            $("#inject-time-type-select").change();
+        },
+        oneditsave: function() {
+            var repeat = "";
+            var crontab = "";
+            var type = $("#inject-time-type-select").val();
+            if (type == "interval") {
+                var count = $("#inject-time-interval-count").val();
+                var units = $("#inject-time-interval-units").val();
+                if (units == "s") {
+                    repeat = count;
+                } else {
+                    if (units == "m") {
+                        repeat = count * 60;
+                    } else if (units == "h") {
+                        repeat = count * 60 * 60;
+                    }
+                }
+            }
+            $("#node-input-repeat").val(repeat);
+        },
+        displayName: 'api'
+    });
+</script>

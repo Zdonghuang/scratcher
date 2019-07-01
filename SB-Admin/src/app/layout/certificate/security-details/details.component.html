@@ -1,0 +1,13 @@
+<div class="containers">
+    <h5>
+      <span (click)="tosecuritylist()" class="back">Security</span>
+      <img src="../../../../assets/images/icon/next.png" alt="">
+      <span>{{key.slice(0,7)}}...</span>
+    </h5>
+    <div class="box">
+      <h6>Name:{{key}}</h6>
+      <div class="delete" (click)="delete(key)"><i class="fa fa-trash"></i></div>
+      <p><span>Generation time : </span>{{data.notBefore}}</p>
+      <p><span class="mgl">Effective time : </span>{{data.notAfter}}</p>
+    </div>
+</div>

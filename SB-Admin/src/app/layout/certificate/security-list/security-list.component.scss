@@ -1,0 +1,37 @@
+.containar{
+  padding: 20px;
+  h5{
+    font-weight: 900;
+  }
+  >table.table{
+    width: 98%;
+    margin: 0 auto;
+    tbody{
+      tr{
+        td{
+           white-space: normal;
+          .bgcimage{
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            background: url('../../../../assets/images/edit@2x.png') no-repeat;
+            background-size: cover;
+          }
+          .bgcimage:hover{
+            width: 20px;
+            height: 20px;
+            background: url('../../../../assets/images/edit-hover@2x.png') no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+  .name{
+    cursor: pointer;
+  }
+}
+.title{
+  font-size: 18px;
+  font-weight: bold;
+}

@@ -1,0 +1,87 @@
+<div>
+  <p class="title pad">Devices</p>
+  <div *ngIf="Lists.length>0">
+    <div class="table-content">
+      <div class="mb-2 table-device table-border table-responsive">
+        <table class="table table-hover table-striped">
+          <thead class="middle">
+            <tr>
+              <th class="all">All</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Model</th>
+              <th>Lable</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <th class="all check">
+                <input type='checkbox' [(checked)]="checkAll" (click)="selectAlls()"/>
+                <span></span>
+              </th>
+              <th>——</th>
+              <th>——</th>
+              <th>
+                <!-- <select class="form-control option">
+                  <option value="Raspberry Pi 3B+">Raspberry Pi 3B+</option>
+                </select> -->
+                ——
+              </th>
+              <th>
+                <form class="add">
+                  <input type="text" [(ngModel)]="lables" name="item" (keyup.enter)="addAll(lables)"/>
+                  <button (click)="addAll(lables)">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </form>
+              </th>
+              <th>
+                <div class="send-btn" (click)="sendAll('certificate')"></div>&nbsp;
+                <!-- <div class="info-btn"></div>&nbsp; -->
+                <!-- <div class="user-btn"></div>&nbsp; -->
+                <div class="delete-btn" (click)="deleteAll()"></div>&nbsp;
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let con of Lists">
+              <td scope="row" class="all check">
+                <input type='checkbox' [(checked)]="con.select" (click)="selectItem(con.uuid)"/>
+                <span></span>
+              </td>
+              <td (click)="goDeviceDetails(con.uuid,con.status)">{{con.name}}</td>
+              <td (click)="goDeviceDetails(con.uuid,con.status)" class="enroll icon">
+                <img src="../../../../assets/images/icon/yes.png" alt="" *ngIf="con.status">
+                <img src="../../../../assets/images/icon/no.png" alt="" *ngIf="!con.status">
+                <span class="sm-show">Online</span>
+              </td>
+              <td>
+                {{con.model}}
+              </td>
+              <td>
+                <div *ngIf="con.tags" class="tags">
+                  <div class="tag" *ngFor="let tag of con.tags.split(',')">
+                    <span>{{tag}}</span>
+                  </div>      
+                </div>
+              </td>
+              <td>
+                <div class="send-btn" (click)="send('certificate',con)"></div>&nbsp;
+                <div class="delete-btn" (click)="delete(con)"></div>&nbsp;
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 分页 -->
+    </div>
+    <div class="center">
+      <ul class="page app-page">
+        <li *ngFor="let i of pagelist" class="pages {{i===1?'active':''}}" (click)="setpage($event)">{{i}}</li>
+      </ul>
+    </div>
+  </div>
+  <div *ngelse class="pad">暂无符合查询条件的设备</div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>

@@ -1,0 +1,127 @@
+<!-- First, the content of the edit dialog is defined.                       -->
+
+<script type="text/x-red" data-template-name="devops-run-container">
+    <!-- By convention, most nodes have a 'name' property. The following div -->
+    <!-- provides the necessary field. Should always be the last option      -->
+    <div class="form-row">
+        <label for="node-input-dockerHostIP">Docker host IP</label>
+        <input type="text" id="node-input-dockerHostIP" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-dockerHostPort">Docker host port</label>
+        <input type="text" id="node-input-dockerHostPort" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-serviceId">Service ID</label>
+        <input type="text" id="node-input-serviceId" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-servicePort">Container port</label>
+        <input type="text" id="node-input-servicePort" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-bindPort">Host port</label>
+        <input type="text" id="node-input-bindPort" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-serviceType">Service type</label>
+        <select id="node-input-serviceType" style="width:125px !important">
+            <option value="backend">Backend</option>
+            <option value="frontend">Frontend</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-imageName">Image name</label>
+        <input type="text" id="node-input-imageName" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-containerName">Container name</label>
+        <input type="text" id="node-input-containerName" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-restart">Restart</label>
+        <select id="node-input-restart" style="width:125px !important">
+            <option value="always">Always</option>
+            <option value="no">No</option>
+            <option value="onFailure">On failure</option>
+        </select>
+    </div>
+
+    <div class="form-row" id="node-once">
+        <label for="node-input-privilege">Privilege</label>
+        <input type="checkbox" id="node-input-privilege" style="display:inline-block; width:15px; vertical-align:baseline;">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-volume">Volume</label>
+        <input type="text" id="node-input-volume" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-env">Environment variables</label>
+        <input type="text" id="node-input-env" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-network">Network</label>
+        <input type="text" id="node-input-network" placeholder="">
+    </div>
+</script>
+
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="devops-run-container">
+   <!-- data-help-name identifies the node type this help is for             -->
+   <!-- This content appears in the Info sidebar when a node is selected     -->
+   <!-- The first <p> is used as the pop-up tool tip when hovering over a    -->
+   <!-- node in the palette.                                                 -->
+   <p>Simple sample input node. Just sends a single message when it starts up.
+   This is not very useful.</p>
+   <p>Outputs an object called <code>msg</code> containing <code>msg.topic</code> and
+   <code>msg.payload</code>. msg.payload is a String.</p>
+</script>
+
+<!-- Finally, the node type is registered along with all of its properties   -->
+<!-- The example below shows a small subset of the properties that can be set-->
+<script type="text/javascript">
+    RED.nodes.registerType('devops-run-container',{
+        category: 'scratcher',      // the palette category
+        defaults: {             // defines the editable properties of the node
+            name: {value:""},   //  along with default values.
+            topic: {value:"", required:true},
+            dockerHostIP: {value:""},
+            dockerHostPort: {value:""},
+            serviceId: {value:""},
+            servicePort: {value:""},
+            bindPort: {value:""},
+            serviceType: {value:"backend"},
+            imageName: {value:""},
+            containerName: {value:""},
+            restart: {value:"always"},
+            privilege: {value: false},
+            volume: {value:""},
+            env: {value:""},
+            network: {value:""}
+        },
+        inputs:1,               // set the number of inputs - only 0 or 1
+        outputs:0,              // set the number of outputs - 0 to n
+        color: "#E2D96E",          // set icon color
+        // set the icon (held in icons dir below where you save the node)
+        icon: "db.png",     // saved in  icons/myicon.png
+        align: "right",
+        label: function() {     // sets the default label contents
+            return this.name||this.topic||"run container";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>

@@ -1,0 +1,44 @@
+<div id="container" [@routerTransition]>
+    <div class="form-group name-box">
+        <label for="newname" class="col-form-label">Name:<span *ngIf="emptyNameAlert" class="red"> * </span></label>
+        <input type="text" class="form-control" id="newname" [(ngModel)]="newName" >
+    </div>
+
+    <div *ngIf="!iframeLoaded" class="loader-button">
+        <button class="btn btn-primary btn-lg" type="button" disabled>
+            <!-- <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> -->
+            <i class="fa fa-spinner"></i>&nbsp;&nbsp;Loading...
+        </button>
+    </div>
+    <!-- <div class="loader" *ngIf="!iframeLoaded"></div> -->
+
+    <ng-template #content let-c="close">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Input a name:</h4>
+        </div>
+        <div class="modal-body">
+            <input type="text" class="form-control" id="wokflow-name" [(ngModel)]="newName">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+        </div>
+    </ng-template>
+
+    <div class="editor">
+        <iframe id="nodered" name="nodered" src="/red" frameborder="0" (load)="onIframeLoaded()">go to Node-Red</iframe>
+        <br>
+        <br>
+        <button class="btn-sm cancle-btn back ml-3" (click)="onCancel()">
+            <img src="../../../../assets/images/icon/cancle.png" alt="" />
+            <span>Cancel</span>
+        </button>
+        <button *ngIf="!onSaving" class="btn-sm save-btn ml-3" (click)="onSave(content)">
+            <img src="../../../../assets/images/icon/save.png" alt=""/>
+            <span>Save</span>
+        </button>
+        <button *ngIf="onSaving" class="btn-sm ml-3 save-btn" type="button" role="status" aria-hidden="true" disabled>
+            <!-- <span class="spinner-border spinner-border-sm"></span> -->
+            <i class="fa fa-spinner"></i>&nbsp;&nbsp;Saving...
+        </button>
+    </div>
+</div>

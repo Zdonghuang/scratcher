@@ -1,0 +1,126 @@
+<div class="detail-container" [@routerTransition]>
+  <div class="workflows">
+    <span (click)="goback()" class="back">Workflow</span>
+    <img src="../../../../assets/images/icon/next.png" alt="">
+    <span *ngIf="workflow">{{workflow.name}}</span>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 bigbox">
+      <div *ngIf="workflow" class="card">
+        <div class="box">
+          <div class="topbox">
+            <div>Device</div>
+            <div class="button_btn">
+              <span (click)="close()"><img src="/assets/images/guan_normal@2x.png" width="28"></span>
+              <span (click)="edit()"><i class="fa fa-edit"></i></span>
+              <span (click)="delete()"><i class="fa fa-trash"></i></span>
+            </div>
+            <p>{{workflow.name}}</p>
+          </div>
+          <div class="lbox">
+            <ul>
+              <li>
+                <div>STATUS</div>
+                <P><img src="{{workflow.up==='on'?'assets/images/icon/yes.png':'assets/images/icon/no.png'}}" alt="">&nbsp; {{workflow.up}}</P>
+              </li>
+              <li>
+                <div>ID</div>
+                <P>{{workflow.id}}</P>
+              </li>
+              <li>
+                <div>PAYLOADID</div>
+                <P>{{workflow.payloadId}}</P>
+              </li>
+              <li>
+                <div>CREATETIME</div>
+                <P>{{workflow.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</P>
+              </li>
+              <li>
+                <div>HOST OS VERSION</div>
+                <P>Resin OS 2.22.1+rev1 &nbsp;<span></span></P>
+              </li>
+              <li>
+                <div>SUPERVISOR VERSION</div>
+                <P>7.25.3 &nbsp;<span></span></P>
+              </li>
+              <li>
+                <div>UPDATETIME</div>
+                <p>{{workflow.updateTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+              </li>
+              <li>
+                <div>LAST ONLINE</div>
+                <p>192.168.43.247</p>
+              </li>
+              <li>
+                <div>LAST ONLINE</div>
+                <p><i><img src="/assets/images/tuoyuan@2x.png" alt=""></i><span></span></p>
+              </li>
+              <li>
+                <div>TYPE</div>
+                <P>{{workflow.type}}</P>
+              </li>
+            </ul>
+            <div>
+              <p>LAST ONLINE</p>
+              <input class="form-control" type="text" placeholder="Add workflows notes...">
+            </div>
+          </div>
+        </div>
+        <div class="list">
+          <p>SERVICE</p>
+          <ul>
+            <li>Service</li>
+            <li>Status</li>
+            <li>Release</li>
+            <li>Action</li>
+            <li>data</li>
+            <li>
+              <i class="fa fa-check-circle green"></i>
+              Runniong
+            </li>
+            <li>b87eddf</li>
+            <li>
+              <i class="fa fa-play"></i>
+              &nbsp;<i class="fa fa-stop"></i>
+              &nbsp;<i class="fa fa-refresh"></i>
+              &nbsp;<i class="fa fa-list-alt"></i>
+            </li>
+            <li>Proxy </li>
+            <li>
+              <i class="fa fa-check-circle green"></i>
+              Runniong
+            </li>
+            <li>b87eddf</li>
+            <li>
+              <i class="fa fa-play"></i>
+              &nbsp;<i class="fa fa-stop"></i>
+              &nbsp;<i class="fa fa-refresh"></i>
+              &nbsp;<i class="fa fa-list-alt"></i>
+            </li>
+            <li>frontend</li>
+            <li>
+              <i class="fa fa-check-circle"></i>
+              Runniong
+            </li>
+            <li>b87eddf</li>
+            <li>
+              <i class="fa fa-play"></i>
+              &nbsp;<i class="fa fa-stop"></i>
+              &nbsp;<i class="fa fa-refresh"></i>
+              &nbsp;<i class="fa fa-list-alt"></i>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div *ngIf="workflow" class="content">
+          <div>
+            CONTENT
+          </div>
+          <p>
+              {{contentString()}}
+          </p>
+      </div>
+    </div>
+  </div>
+</div>

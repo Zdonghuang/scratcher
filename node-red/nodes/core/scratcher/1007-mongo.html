@@ -1,0 +1,39 @@
+<script type="text/x-red" data-template-name="mongoDB">
+    <div class="form-row">
+        <label for="node-input-nodeName">Node Name</label>
+        <input type="text" id="node-input-nodeName" placeholder="">
+    </div>
+</script>
+
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="mongoDB">
+   <p>MongoDB</p>
+   <p>Send output to MongoDB.</p>
+</script>
+
+<!-- Finally, the node type is registered along with all of its properties   -->
+<!-- The example below shows a small subset of the properties that can be set-->
+<script type="text/javascript">
+    RED.nodes.registerType('mongoDB',{
+        category: 'scratcher',      // the palette category
+        defaults: {             // defines the editable properties of the node
+            name: {value:"mongoDB"},   //  along with default values.
+            nodeName: {value:""},
+            topic: {value:"", required:true}
+        },
+        inputs:1,               // set the number of inputs - only 0 or 1
+        outputs:0,              // set the number of outputs - 0 to n
+        color: "#ddd",          // set icon color
+        // set the icon (held in icons dir below where you save the node)
+        icon: "db.png",     // saved in  icons/myicon.png
+        align: "right",
+        label: function() {     // sets the default label contents
+            return this.nodeName || "MongoDB";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.nodeName ? "node_label_italic" : "";
+        },
+        displayName: 'MongoDB'
+    });
+</script>

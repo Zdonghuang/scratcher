@@ -1,0 +1,170 @@
+<div>
+  <!-- <div class="header">
+    <ul class="page">
+      <li *ngFor="let i of pagelist" class="pages {{i===1?'active':''}}" (click)="setpage($event)">{{i}}</li>
+    </ul>
+    <button class="btn-sm btn-success" (click)="showadd=true">Define device</button>&nbsp;
+    <button class="btn-sm btn-success" (click)="showaddping=true">Device</button>
+  </div> -->
+  <div class="create">
+    <p>Devices</p>
+    <div class="change-type">
+      <button class="btn-sm create-btn" (click)="toadd()">
+        <i class="fa fa-plus"></i>
+        <span>Add device</span>
+      </button>
+      <!-- <div class="change">
+        <img src="../../../../assets/images/icon/type1_s.png" alt="" *ngIf="showType==1" (click)="changeType(1)">
+        <img src="../../../../assets/images/icon/type1.png" alt="" *ngIf="showType==2" (click)="changeType(1)">
+        <img src="../../../../assets/images/icon/type2_s.png" alt="" *ngIf="showType==2" (click)="changeType(2)">
+        <img src="../../../../assets/images/icon/type2.png" alt="" *ngIf="showType==1" (click)="changeType(2)">
+      </div> -->
+    </div>
+  </div>
+  <div *ngIf="showType==1">
+    <div class="table-content">
+      <div class="mb-2 table-device table-border table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th class="name">Name</th>
+              <th>Status</th>
+              <th class="sm-show">Model</th>
+              <!-- <th>Command </th> -->
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let con of DeviceLists">
+              <td scope="row" (click)="goDeviceDetails(con.uuid,con.status)" class="name">{{con.name}}</td>
+              <!-- <td>{{con.status}}</td> -->
+              <td (click)="goDeviceDetails(con.uuid,con.status)" class="enroll">
+                <img src="../../../../assets/images/icon/yes.png" alt="" *ngIf="con.status">
+                <img src="../../../../assets/images/icon/no.png" alt="" *ngIf="!con.status">
+                <span class="font-position" class="sm-show">Online</span>
+              </td>
+              <td class="sm-show">
+                {{con.model}}
+              </td>
+              <!-- <td>
+                <button class="btn-sm btn-success {{con.enrolled?'':'cursor'}}" disabled="{{con.enrolled?'':'disabled'}}" (click)="sencommand('certificate',con)">send</button>&nbsp;
+                <button class="btn-sm btn-primary" (click)="goDeviceEdit(con.uuid,con.enrolled)">edit</button>&nbsp;
+                <button class="btn-sm btn-info" (click)="goDeviceDetails(con.uuid,con.enrolled)">details</button>&nbsp;
+                <button disabled="{{con.enrolled?'disabled':''}}" class="btn-sm btn-danger {{con.enrolled?'cursor':''}}" (click)="deletePredefinedDevice(con)">delete</button>&nbsp;
+                <button disabled="{{con.enrolled?'':'disabled'}}" class="btn-sm btn-secondary {{con.enrolled?'':'cursor'}}" (click)="unenroll(con.uuid)">unenroll</button>
+              </td> -->
+              <td>
+                <!--  disabled="{{con.enrolled?'':'disabled'}}"  -->
+                <button class="send-btn" (click)="con.status&&sencommand('certificate',con)" disabled="{{con.status?'':'disabled'}}"></button>&nbsp;
+                <button class="info-btn sm-show" (click)="goDeviceDetails(con.uuid,con.status)"></button>&nbsp;
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- <div class="center">
+      <ul class="page app-page">
+        <li *ngFor="let i of pagelist" class="pages {{i===1?'active':''}}" (click)="setpage($event)">{{i}}</li>
+      </ul>
+    </div> -->
+  </div>
+  <div *ngIf="showType==2">
+    <div class="centers">
+      <div class="device-items device-4" *ngFor="let con of DeviceLists">
+      <!-- <div class="device-items device-4"> -->
+        <div>
+          <div>
+            <p>Name</p>
+            <p>{{con.name}}</p>
+          </div>
+          <div>
+            <p>Status</p>
+            <p class="text-sl">
+              <!-- con.enrolled -->
+              <img src="../../../../assets/images/icon/yes.png" alt="" *ngIf="con.status">
+              <img src="../../../../assets/images/icon/no.png" alt="" *ngIf="!con.status">
+              <span class="font-position">Online</span>
+            </p>
+          </div>
+          <div>
+            <p>Command</p>
+            <p>
+              <button class="btn-sm btn-success" *ngIf="con.status" (click)="sencommand('certificate',con)">send</button>
+            </p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Type</p>
+            <p>XXX</p>
+          </div>
+          <div>
+            <p>Enrolled</p>
+            <p>{{con.enrolled?'Register':'Unregistered'}}</p>
+          </div>
+          <div>
+            <p>Operation</p>
+            <p class="device-btns">
+              <button class="btn-sm btn-primary" (click)="goDeviceEdit(con.uuid,con.status)">edit</button>
+              <button class="btn-sm btn-info" (click)="goDeviceDetails(con.uuid,con.status)">details</button>
+              <button *ngIf="!con.status" class="btn-sm btn-danger" (click)="deletePredefinedDevice(con)">delete</button>
+              <button *ngIf="con.status" class="btn-sm btn-secondary" (click)="unenroll(con.id)">unenroll</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="center">
+      <ul class="page app-page">
+        <li *ngFor="let i of pagelist" class="pages {{i===1?'active':''}}" (click)="setpage($event)">{{i}}</li>
+      </ul>
+    </div> -->
+  </div>
+  <div class="bigbox" *ngIf="showadd">
+    <div class="litbox">
+      <br> 
+      <h4 class="textalign">New equipment</h4>
+      <div class="form-group">
+          <label class="fl">name：</label>
+          <input type="text" (change)="json.name=$event.target.value" class="form-control fr" placeholder="name">
+      </div>
+      <div class="form-group">
+          <label class="fl">mobile：</label>
+          <input type="text" (change)="json.mobile=$event.target.value;" class="form-control fr" placeholder="mobile">
+      </div>
+      <div class="form-group">
+          <label class="fl">uuid：</label>
+          <input type="text" (change)="json.uuid=$event.target.value;" class="form-control fr" placeholder="uuid">
+      </div>
+      <div class="form-group">
+          <label class="fl">model：</label>
+          <input type="text" (change)="json.model=$event.target.value;" class="form-control fr" placeholder="model">
+      </div>
+      <div class="form-group">
+          <label class="fl">OS：</label>
+          <input type="text" (change)="json.os=$event.target.value;" class="form-control fr" placeholder="OS">
+      </div>
+      <div class="form-group">
+          <label class="fl">status：</label>
+          <input type="text" (change)="json.status=$event.target.value;" class="form-control fr" placeholder="status">
+      </div>
+      <button class="btn btn-success add" (click)="addPredefinedDevice()">add</button>
+      <button class="btn btn-secondary cancel" (click)="redata()">cancel</button>
+    </div>
+  </div>
+  <div class="bigbox"*ngIf="showaddping">
+    <div class="lbox">
+      <button class="btn-sm btn-success add">add</button>
+      <button class="btn-sm btn-secondary cancel" (click)="showaddping=false">cancel</button>
+    </div>
+  </div>
+  <div class="center">
+    <ul class="page app-page">
+      <li *ngFor="let i of pagelist" class="pages {{i===curPage?'active':''}}" (click)="setpage($event)">{{i}}</li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>

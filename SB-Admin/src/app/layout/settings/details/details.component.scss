@@ -1,0 +1,84 @@
+div{
+  >.settings_details{
+    margin: 20px 0 0 20px;
+    font-size: 18px;
+    span{
+      font-weight: bold;
+    }
+    img{
+      margin: 0 10px;
+    }
+    .back{
+      cursor: pointer;
+      font-weight: normal;
+    }
+    .back:hover{
+      font-weight: bold;
+    }
+  }
+  >.litbox{
+    padding: 30px 46px;
+    font-weight: 500;
+    font-size: 18px;
+    box-sizing: border-box;
+    min-width: 580px;
+    >.first{
+      position: relative;
+      .fr{
+        position: absolute;
+        width: 50%;
+        top: -4px;
+        left: 160px;
+        background-color: #F5F7F8;
+        color: #999999;
+      }
+    }
+    >#reset,>#save{
+      margin-top: 20px;
+      display: inline-block;
+      width: 8rem;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+    }
+    >#reset{
+      background: -webkit-linear-gradient(left, #FFC107 , #E06900); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #FFC107, #E06900); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #FFC107, #E06900); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #FFC107 , #E06900); /* 标准的语法 */
+      margin-right: 20px;
+    }
+    >#save{
+      background: -webkit-linear-gradient(left, #61C3E2 , #55ACC7); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #61C3E2, #55ACC7); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #61C3E2, #55ACC7); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #61C3E2 , #55ACC7); /* 标准的语法 */
+    }
+    >#reset:hover{
+      background: none;
+      background-color: #FFC107;
+    }
+    >#save:hover{
+      background: none;
+      background-color: #55ACC7;
+    }
+  }
+}
+.tiptext {
+  position: fixed;
+  background: rgba(65, 63, 63, 0.7);
+  top:50%;
+  left: 50%;
+  z-index: 100000000;
+  transform: translate(-50%,-50%);
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color:rgba(233, 164, 164, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}
+

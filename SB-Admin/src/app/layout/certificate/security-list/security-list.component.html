@@ -1,0 +1,21 @@
+<div class="containar">
+  <p class="title">Security</p>
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Operation</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let con of list">
+          <td class="name" (click)="todetail(con)">
+            {{con}}
+          </td>
+          <td>
+            <div (click)="todetail(con)" class="bgcimage cursor"></div>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

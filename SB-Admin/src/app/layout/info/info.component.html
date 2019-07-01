@@ -1,0 +1,57 @@
+<div class="info">
+  <div class="create">
+    <p>Info</p>
+  </div>
+  <div class="info-box">
+    <h5>Username</h5>
+    <p class="red">{{username}}</p>
+    <div class="email">
+      <p>Email</p>
+      <!-- <input type="text" value="{{email}}" disabled="disabled" (input)=""> -->
+      <input type="text" value="{{email}}" [(ngModel)]="infoEmail" (input)="watchEmail()">
+      <p class="email-btn">
+        <button class="change-email" disabled="{{emailinfo?'':'disabled'}}" (click)="changeEmail()">Change</button>
+      </p>
+    </div>
+    <!-- <div class="email" *ngIf="show">
+      <p>Email</p>
+      <input type="text" value="{{email}}" [(ngModel)]="infoEmail" (input)="watchEmail()">
+      <div class="item email-pwd">
+        <p>Password</p>
+        <input type="password" [(ngModel)]="infoPwd" (input)="watchEmail()">
+        <p class="blue">Please provide your current password.</p>
+        <div class="btns">
+          <button class="cancle" (click)="showChange(0)">cancle</button>
+          <button class="set" disabled="{{emailinfo?'':'disabled'}}" (click)="changeEmail()">Set Email</button>
+        </div>
+      </div>
+    </div> -->
+    <div class="pwd">
+      <div class="item">
+        <p>Current Password*</p>
+        <input type="password" [(ngModel)]="currentPwd" (input)="watchPwd()" placeholder="At least 8 characters and avoid common phrases">
+      </div>
+      <div class="item">
+        <p>New Password*</p>
+        <input type="password" [(ngModel)]="newPwd" (input)="watchPwd()" placeholder="At least 8 characters and avoid common phrases">
+      </div>
+      <div class="item">
+        <p>Confirm Password*</p>
+        <input type="password" [(ngModel)]="confirmPwd" (input)="watchPwd()" placeholder="At least 8 characters and avoid common phrases">
+      </div>
+      <div class="item">
+        <button class="change" disabled="{{pwdinfo?'':'disabled'}}" (click)="changePwd()">Change Password</button>
+      </div>
+      <div class="item">
+        <button class="log" (click)="onLoggedout()">Log me out from other sessions</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>
+<div *ngIf="showSuccess" class="text">
+  <p>{{text}}</p>
+  <p>{{text2}}</p>
+</div>

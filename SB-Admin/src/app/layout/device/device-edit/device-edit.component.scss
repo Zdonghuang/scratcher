@@ -1,0 +1,33 @@
+.text{
+  text-align: center;
+}
+.textwidth{
+  display: inline-block;
+  width:200px;
+  font-size: 18px;
+}
+.gobackbtn{
+  margin-left: 45%;
+}
+.border{
+  margin: 0 auto;
+  width: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 4px 4px #ccc;
+}
+.tiptext {
+  position: fixed;
+  background: rgba(65, 63, 63, 0.7);
+  top:50%;
+  left: 50%;
+  z-index: 100000000;
+  transform: translate(-50%,-50%);
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color:rgba(233, 164, 164, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}
+

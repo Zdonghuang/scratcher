@@ -1,0 +1,193 @@
+.detail-container {
+    padding: 20px;
+    .card{
+      flex: 5;
+      background-color: #F5F7F8;
+      margin-top: 20px;
+      display: flex;
+      vertical-align: top;
+      flex-direction: column;
+      border: none;
+    }
+    >.workflows{
+      font-size: 18px;
+      span{
+        font-weight: bold;
+      }
+      img{
+        margin: 0 10px;
+      }
+      .back{
+        cursor: pointer;
+        font-weight: normal;
+      }
+      .back:hover{
+        font-weight: bold;
+      }
+    }
+    .box{
+      padding: 20px;
+      flex: 1;
+      background-color: #fff;
+      box-shadow: 0 0 4px #666;
+      >.topbox{
+        position: relative;
+        div{
+          display: inline-block;
+          color: rgb(75, 72, 72);
+        }
+        div:nth-child(2){
+          position: absolute;
+          right: 0;
+          span{
+            margin-left: 6px;
+          }
+          span:nth-child(1){
+            img{
+              vertical-align: top;
+            }
+          }
+          span:nth-child(2){
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border: 1px solid skyblue;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 2px;
+            i{
+              color: skyblue;
+              font-weight: 100;
+              font-size: 18px;
+            }
+          }
+          span:nth-child(3){
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border: 1px solid pink;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 2px;
+            i{
+              color: pink;
+              font-weight: 100;
+              font-size: 18px;
+            }
+          }
+        }
+        p{
+          margin-top: 10px;
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+      >.lbox{
+        >ul{
+          list-style: none;
+          padding: 0;
+          >li{
+            display: inline-block;
+            width: 33%;
+            vertical-align: text-top;
+            div{
+              color: rgb(75, 72, 72);
+            }
+            >p{
+              margin-top: 10px;
+              font-size: 18px;
+              font-weight: 600;
+              >span{
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+                background: url('../../../../assets/images/b_@2x.png') no-repeat;
+              }
+              >i{
+                display: inline-block;
+                width: 30px;
+                height: 16px;
+                margin: -4px 4px 0 0;
+                vertical-align: middle;
+                background: url('../../../../assets/images/yuan@2x.png') no-repeat;
+                img{
+                  margin: -15px 0 0 16px;
+                }
+              }
+              >span:hover{
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                background: url('../../../../assets/images/b_hover@2x.png') no-repeat;
+              }
+            }
+          }
+          >li:nth-child(4), >li:nth-child(5), >li:nth-child(6){
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+          }
+          >li:nth-child(8){
+            color: red;
+          }
+        }
+        >div{
+          
+        }
+      }
+    }
+    .list{
+      flex: 1;
+      padding: 20px;
+      >p{
+        color: #333333;
+      }
+      >ul{
+        list-style: none;
+        li{
+          float: left;
+          width: 25%;
+          font-weight: 600;
+          margin-top: 20px;
+          i{
+            color: #999;
+          }
+          i.green{
+            color: green;
+          }
+        }
+        li:nth-child(1),li:nth-child(2),li:nth-child(3),li:nth-child(4){
+          float: left;
+          width: 25%;
+          font-weight: 400;
+        }
+        li:nth-child(4){
+          font-size: 20px;
+        }
+      }
+    }
+}
+.bigbox{
+  display: flex;
+}
+.content{
+  flex: 2;
+  display: inline-block;
+  white-space: pre-wrap;
+  background-color: #fff;
+  box-shadow: 0 0 4px #666;
+  padding: 20px;
+  margin: 20px 0 0 20px;
+  div{
+    font-size: 14px;
+    color: rgb(75, 72, 72);
+  }
+  p{
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+.td-label {
+    white-space: nowrap;
+}

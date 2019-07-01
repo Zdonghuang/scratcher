@@ -1,0 +1,247 @@
+#container{
+  height: 100% !important;
+  padding: 28px 0;
+}
+.main-container[_ngcontent-c1]{
+  background-color: #fff;
+}
+#container iframe{
+  width: 100%;
+  height: 96%;
+}
+.create{
+  text-align: right;
+  margin-bottom: 10px;
+}
+.pages{
+  float: left;
+  list-style: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid rgb(67, 155, 238);
+  line-height: 1.8rem;
+  text-align: center;
+  cursor: pointer;
+}
+.page {
+  margin-left: -36px;
+}
+.page li+li{
+  border-left: none;
+}
+.active{
+  background-color: rgb(65, 89, 196);
+}
+.step1{
+  width: 50%;
+  padding: 0 40px 0 26px;
+  border-right: 1px dashed #666;
+  float: left;
+  fieldset{
+    padding-left: 16px;
+  }
+}
+.step3left{
+  width: 50%;
+  padding: 20px 20px 0 40px;
+  border-right: 1px dashed #666;
+  float: left;
+  word-wrap: break-word;
+}
+.setcolor{
+  color: #666;
+}
+.appimg{
+  vertical-align: top;
+}
+.step1right{
+  width: 50%;
+  float: left;
+  text-align: left;
+  padding: 0 1.3rem 0 1.5rem;
+}
+.step1right .txt{
+  padding-left: 42px;
+  word-wrap: break-word;
+  margin-top: 1.5rem;
+  color: rgb(77, 76, 76);
+  position: relative;
+}
+.step1right .txt span{
+  position: absolute;
+  top: 0.3rem;
+  left: 16px;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  border-radius: 50%;
+  background-color: #6ABF4A;
+}
+.red{
+  color: red;
+}
+.hand{
+  cursor: pointer;
+}
+.text{
+  resize: none;
+  height: 200px;
+}
+.file {
+  position: relative;
+  height: 154px;
+}
+.image{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 10000;
+  opacity: 0;
+}
+.tarfile{
+  width: 60px;
+  height: 60px;
+  border: none;
+  position: absolute;
+  opacity: 0;
+}
+.upfile{
+  margin-top: 30px;
+}
+.file div{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 10;
+  border: 1px solid rgb(231, 224, 224);
+  border-radius: 4px;
+}
+.back{
+  display: inline-block;
+  vertical-align: top;
+  width: 120px;
+  height: 34px;
+  color: #fff;
+  position: relative;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  background: url(../../../../assets/images/huan.png) no-repeat;
+  background-size: 100%;
+  span{
+    position: absolute;
+    top: 5px;
+    left: 36px;
+  }
+  img.huang{
+    margin-top: 6px;
+  }
+  img.left{
+    position: absolute;
+    left: 14px;
+    top: 11px;
+  }
+}
+.nextstep{
+  display: inline-block;
+  margin-left: 16px;
+  width: 120px;
+  height: 34px;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  background: url(../../../../assets/images/green.png) no-repeat;
+  background-size: 100%;
+  span{
+    position: absolute;
+    top: 5px;
+    right: 36px;
+  }
+  img.lv{
+    display: inline-block;
+    width: 120px;
+    margin-top: 6px;
+  }
+  img.right{
+    position: absolute;
+    right: 14px;
+    top: 11px;
+  }
+}
+.back:hover{
+  background-image: none;
+  background-color: rgb(247, 190, 34);
+  background-size: 100%;
+}
+.create-btn{
+  border: none;
+  padding: 7px 30px;
+  background: -webkit-linear-gradient(left, #55ACC8 , #61C3E2); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #55ACC8 , #61C3E2); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #55ACC8 , #61C3E2); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #55ACC8 , #61C3E2); /* 标准的语法（必须放在最后） */
+  border: transparent;
+  color: #fff;
+  margin-left: 20px;
+}
+.create-btn:hover{
+  background: #61C3E2;
+}
+.nextstep:hover{
+  background-image: none;
+  background-color: #61C3E2;
+  background-size: 100%;
+}
+.review{
+  font-size: 18px;
+}
+.step3right{
+  text-align: center;
+  padding-top: 40px;
+}
+.tiptext {
+  position: fixed;
+  background: rgba(65, 63, 63, 0.7);
+  top:50%;
+  left: 50%;
+  z-index: 100000000;
+  transform: translate(-50%,-50%);
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color:rgba(233, 164, 164, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}
+.step2 iframe{
+  min-height: 640px;
+}
+.loader {
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  display: inline-block;
+  text-align: center;
+  margin-left: 140px;
+  vertical-align: middle;
+}
+.uploadimg{
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@media screen and (max-width: 647px) {
+  .loader {
+    margin-left: 50px;
+  }
+}

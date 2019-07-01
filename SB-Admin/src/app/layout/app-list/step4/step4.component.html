@@ -1,0 +1,32 @@
+<div id="container" [@routerTransition]>
+    <div class="step4">
+        <div class="step3left">
+            <h3>Third step <span class="review">{{this.appinfo.state===-1?'Withdrawn':'Under review'}}</span></h3>
+            <br>
+            <br>
+            <p>App ID： <span class="setcolor"> {{appinfo.appId}}</span></p>
+            <p>App Name： <span class="setcolor"> {{appinfo.appName}}</span></p>
+            <p>App BundleId： <span class="setcolor"> {{appinfo.bundleId}}</span></p>
+            <p>App Description： <span class="setcolor"> {{appinfo.description}}</span></p>
+            <p>App Icon： <img class="appimg" src="{{appinfo.image}}" width="100" height="100" *ngIf="appinfo.image"></p>
+            <br>
+            <br>
+            <button class="btn-sm btn-warning back" (click)="undoMyApp(appinfo)" *ngIf="this.appinfo.state>-1">undo</button>
+            <button *ngIf="this.appinfo.state===-1" class="btn-sm btn-primary back" (click)="gostep1(appinfo.id)">upgrade</button>
+            <button class="btn-sm create-btn" (click)="gomyapp()">My app</button>
+        </div>
+        <div class="step3right" *ngIf="step3right">
+            <h3>Explain</h3>
+            <p class="txt">The process of creating app has been completed,</p>
+            <p class="txt">Has entered the audit status.</p>
+            <p class="txt">Your mailbox will receive an email from us.</p>
+            <p class="txt">Our management will review your app.</p>
+            <p class="txt">Success or failure will be notified by email.</p>
+            <p class="txt">Thank you for your use.</p>
+        </div>
+    </div>
+    <div *ngIf="showtext" class="tiptext">
+      {{text}}
+    </div>
+
+</div>

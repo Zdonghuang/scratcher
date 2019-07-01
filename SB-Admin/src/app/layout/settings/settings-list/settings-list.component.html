@@ -1,0 +1,42 @@
+<div class="set">
+  <h5 class="weight">Settings</h5>
+  <button class="btn-sm create-btn" (click)="showAPK=true">
+    <i class="fa fa-plus"></i>
+    <span>UpLoad Agent APK</span>
+  </button>
+  <br>
+  <br>
+  <table class="table">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let con of settinglist">
+            <td class="name" (click)="getAservice(con)">{{con.service}}</td>
+            <td>{{con.description}}</td>
+            <td>
+              <div (click)="getAservice(con)" class="bgcimage cursor"></div>
+            </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+<div class="bixbox" *ngIf="showAPK">
+  <div class="ltbox">
+    <div>
+      version: <input type="text" class="version" (change)="APKversion=$event.target.value">
+    </div>
+    <br>
+    <div class="apk">
+      APK file: <input class="apkfile" type="file" accept=".apk" (change)="uploadfile($event.target)">
+      <img src="/assets/images/+_normal@2x.png">
+      <p>{{APKFlie.name}}</p>
+    </div>
+    <button class="btn-sm btn-success done" (click)="uploadAPK()">done</button>
+    <button class="btn-sm btn-danger cancel" (click)="showAPK=false">cancel</button>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div id="container">
+  <div class="content">
+    <h5>Add a new device</h5>
+    <div class="box">
+        <div class="form-group">
+          <label class="fl">1.Select your board</label>
+          <img class="tree" src="assets/images/tree.png" alt="">
+          <select class="form-control">
+            <option value="Raspberry Pi 3B+"> Raspberry Pi 3B+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>2.Select your OS image</label>
+          <select class="form-control option">
+            <option value="Raspberry Pi 3B+">scratcher_os_1.0_rpi3bp_20190312.zip</option>
+          </select>
+        </div>
+        <div class="form-group imgbox">
+          <label>3.Write the image to your board following these steps:</label>
+          <img class="flieimg" src="assets/images/copy@2x.png" alt="">
+        </div>
+        <div class="form-group imgbox">
+          <label>4.Connect your device to the network</label>
+        </div>
+        <p class="textcolor">a. If you're using wired network, just plugin your network cable</p>
+        <p class="textcolor">b. If you're using wireless network, please refer to this guide to configure your image</p>
+        <div class="form-group imgbox">
+          <label>5.Connect the power supply</label>
+        </div>
+        <div class="form-group imgbox1">
+          <label>6.Get the device activation pin code</label>
+          <p>a. Connect the supplied LED module to the GPIO headers as shown below</p>
+          <img class="flieimgs" src="assets/images/copy@2x.png" alt="">
+          <p class="tips">(the LED will show the following patterns: =0_1_2_3_4_5_6_7_8_9-,in this case 0123456789 is the pin code)</p>
+          <p>b. Alternatively, you can find the code in the file: /etc/enrol.log (requires a monitor, mouse and keyboard)</p>
+        </div>
+        <p class="weight">7.Enter the number below to enroll the device:</p>
+        <div>
+          <input type="text" class="form-control pin" (change)="pin=$event.target.value">
+          <button class="btn-sm create-btn" (click)="bindpin()">Activation</button>
+        </div>
+        <div *ngIf="error">
+          <p class="error">Error</p>
+        </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>

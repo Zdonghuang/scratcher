@@ -1,0 +1,212 @@
+.title{
+    font-weight: bold;
+    padding: 20px 0 30px 20px;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.pad{
+   padding-left: 20px;
+}
+.table-content{
+  width: 98%;
+  min-height: 400px;
+}
+.table-border{
+  border: none;
+}
+.table-title{
+  font-size: 26px;
+}
+.table-device{
+  width: 100%;
+}
+table tr>.all{
+    padding-left: 20px;
+    font-weight: normal;
+}
+.add{
+    height: 36px;
+    input,button{
+        height: 36px;
+        border: 1px solid #ced4da;
+        vertical-align: top;
+    }
+    input{
+      padding-left: 10px;
+    }
+    button{
+        background: #fff;
+        outline: none;
+        box-shadow: none;
+        border: 1px solid #ced4da;
+        color: #999;
+        width: 34px;
+        vertical-align: middle;
+    }
+    button:hover{
+        background: #999;
+        border: none;
+        color: #fff;
+        width: 36px;
+    }
+}
+.middle tr{
+    th{
+        vertical-align: middle;
+    }
+}
+.send-btn,.info-btn,.user-btn,.delete-btn{
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.send-btn{
+  background-image: url(../../../../assets/images/icon/send.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.send-btn:hover{
+  background-image: url(../../../../assets/images/icon/send-h.png);
+}
+.info-btn{
+  background-image: url(../../../../assets/images/icon/detail.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.info-btn:hover{
+  background-image: url(../../../../assets/images/icon/detail-h.png);
+}
+.user-btn{
+  background-image: url(../../../../assets/images/icon/deluser.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.user-btn:hover{
+  background-image: url(../../../../assets/images/icon/deluser-h.png);
+}
+.delete-btn{
+  width: 17px;
+  background-image: url(../../../../assets/images/icon/delete.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.delete-btn:hover{
+  background-image: url(../../../../assets/images/icon/delete-h.png);
+}
+.icon{
+    img{
+        position: relative;
+        top: -2px;
+        margin-right: 5px;
+    }
+}
+
+.check{
+    height: 20px;
+}
+input[type=checkbox]{
+  width: 20px;
+  height: 20px;
+  background: url(../../../../assets/images/icon/check.png);
+  margin-top: 9px;
+}
+input[type=checkbox]:after  {
+    content: "";
+    display:block;
+    width: 20px;
+    height: 20px;
+    background: url(../../../../assets/images/icon/check.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+input[type=checkbox]:checked:after  {
+    background: url(../../../../assets/images/icon/checked.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+input:focus{
+    outline: none;
+}
+select:focus{
+    outline: none;
+    box-shadow: none;
+}
+.tags{
+  width: 282px;
+  white-space:normal;
+  .tag:not(:first-child){
+    margin-top: 10px;
+  }
+}
+.tag{
+    display: inline-block;
+    margin-right: 10px;
+    // width: 136px;
+    // height: 40px;
+    // background: url(../../../../assets/images/icon/tag.png);
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    border: 1px solid #F97306;
+    span{
+        vertical-align: middle;
+        padding: 0 10px;
+        display: inline-block;
+        // width: 110px;
+        height: 30px;
+        line-height: 30px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+}
+.tiptext {
+  position: fixed;
+  background: rgba(65, 63, 63, 0.7);
+  top:50%;
+  left: 50%;
+  z-index: 100000000;
+  transform: translate(-50%,-50%);
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color:rgba(233, 164, 164, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}
+button:disabled{
+  cursor: not-allowed;
+}
+.app-page{
+  float: right;
+  margin: 30px 0;
+}
+.pages{
+  float: left;
+  list-style: none;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #D2D2D2;
+  line-height: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.pages:hover{
+  box-shadow: inset 0 2px 2px #D2D2D2;
+}
+.page {
+  margin-left: -36px;
+}
+.page li+li{
+  border-left: none;
+}
+.active{
+  // background-color: rgb(65, 89, 196);
+  box-shadow: inset 0 2px 2px #D2D2D2; 
+}
+.center{
+  width: 100%;
+  padding: 20px 40px;
+}
+

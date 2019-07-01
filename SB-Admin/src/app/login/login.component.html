@@ -1,0 +1,41 @@
+<div class="login-page" [@routerTransition]>
+    <div class="header">
+      <span class="logo" (click)="router.navigate(['/index'])">Logo</span>
+      <span class="sign">Don't have an account? <button class="btn-sm signup" [routerLink]="['/signup']"> Sign up</button></span>
+    </div>
+    <div class="rows justify-content-md-center content">
+        <div class="col-md-4">
+            <h1 class="weight">Log in to Ciot</h1>
+            <div class="faceimg">
+              <span class="face">
+                <img src="assets/images/Facebook@2x.png" width="200px" height="34px">
+                <span>Log in with Facebook</span>
+              </span>
+              <span class="google">
+                <img src="assets/images/google@2x.png" width="200px" height="34px">
+                <span>Log in with google</span>
+              </span>
+            </div>
+            <form role="form">
+                <div class="form-content">
+                  <div class="form-group">
+                    <label class="fl">Email</label>
+                    <input type="text" (keyup.enter)="onLoggedin()" (change)="logindatas.username=$event.target.value;" class="form-control" placeholder="Email">
+                  </div>
+
+                  <div class="form-group">
+                      <label class="fl">Password</label>
+                      <input type="password" (keyup.enter)="onLoggedin()" (change)="logindatas.password=$event.target.value;" class="form-control" placeholder="Password">
+                  </div>
+                </div>
+                <a class="btn rounded-btn login" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
+                <span class="pwd">Forgot your password? <a [routerLink]="['/forgetpwd']">Click here</a></span>
+                <!-- &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/signup']">{{ 'Register' | translate }}</a> -->
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>

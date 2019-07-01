@@ -1,0 +1,35 @@
+.header{
+  height: 50px;
+  box-shadow: 0 2px 6px rgb(207, 205, 205);
+  .logo{
+    float: left;
+    font-size: 24px;
+    line-height: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+}
+.top{
+  text-align: center;
+  line-height: 40px;
+}
+.fa-check-square{
+  color: green;
+}
+.color{
+  color: rgb(207, 205, 231);
+}
+.tiptext {
+  position: fixed;
+  background: rgba(65, 63, 63, 0.7);
+  top:34%;
+  left: 50%;
+  z-index: 100000000;
+  transform: translate(-50%,-50%);
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color:rgba(233, 164, 164, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}

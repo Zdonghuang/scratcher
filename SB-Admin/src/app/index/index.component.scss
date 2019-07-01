@@ -1,0 +1,595 @@
+.nav{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  .cnav{
+    height: 80px;
+  }
+}
+.main{
+  width: 1200px;
+  margin: 0 auto;
+  line-height: 80px;
+  position: relative;
+  .ciot{
+    font-size:38px;
+    font-family:Roboto-Bold;
+    font-weight:bold;
+    color:#333;
+  }
+  .line1{
+    width: 11px; 
+    height: 280px;
+    position: absolute; 
+    left: 55%;
+    top: 200px;
+    // transform: translate(-50%, -50%);    /* 50%为自身尺寸的一半 */
+  }
+  .line2{
+    width: 11px; 
+    height: 360px;
+    position: absolute; 
+    left: 54%;
+    top: 200px;
+  }
+  .line3{
+    width: 11px; 
+    height: 360px;
+    position: absolute; 
+    left: 54%;
+    top: 200px;
+  }
+}
+.menu{
+  width: 50%;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  .mu{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    float: left;
+  }
+  div{
+    display: inline-block;
+    width: 40%;
+    button{
+      margin: 0 15px;
+      background: transparent;
+      outline: none;
+      padding: 0px 20px;
+      border: 1px solid #fff; 
+      height: 38px;  
+      color: #fff;
+    }
+    button:hover{
+      background: #fff;
+      color: #333;
+    }
+  }
+}
+.banner{
+  width: 100%;
+  height: 940px;
+  .rt{
+    float: right;
+    // position: absolute;
+    // right: 0;
+    // z-index: -1;
+    width: 65%;
+    height: 1040px;
+    background: url(../../assets/images/index/banner.png) left no-repeat;
+    background-size: cover;
+  }
+  .box{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 400px;
+    div{
+      p{
+        margin-bottom: 0;
+        font-size:28px;
+        font-weight:bold;
+        color:rgba(51,51,51,1);
+      }
+    }
+    .det{
+      margin: 40px 0 56px 0;
+    }
+  }
+}
+.learn{
+  width: 230px;
+  height: 54px;
+  background: url(../../assets/images/index/button.png) left no-repeat;
+  line-height: 50px;
+  span{
+    padding-left: 50px;
+  }
+}
+.learn:hover{
+  background: url(../../assets/images/index/button_h.png) left no-repeat;
+}
+.dropdown{
+  display: none;
+}
+.login,.sign{
+  cursor: pointer;
+}
+.login:focus{
+  outline: none;
+}
+.sign:focus{
+  outline: none;
+}
+.two{
+  width: 50%;
+  float: left;
+  margin-top: 60px;
+  line-height: 30px;
+  text-align: center;
+}
+.two>img{
+  img{
+    margin-top: 30px;
+  }
+}
+.main>.ciots{
+  width: 40%;
+  margin-left: 10%;
+  margin-top: 100px;
+  div{
+    margin: 20px 0;
+    text-align: left;
+    p{
+      font-size:28px;
+      font-weight:bold;
+      color:rgba(51,51,51,1);
+      margin-bottom: 5px;
+    }
+  }
+  p{
+    font-size: 18px;
+    color: #666;
+    line-height: 24px;
+    text-align: left;
+  }
+}
+.item{
+  width: 48%;
+  margin-top: 60px;
+  display: inline-block;
+}
+.item>div{
+  display: inline-block;
+  width: 75%;
+  margin-left: 1%;
+  line-height: 30px;
+  vertical-align: middle;
+  div{
+    font-size:16px;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+  }
+  p{
+    line-height: 15px;
+    font-size:12px;
+    color:rgba(102,102,102,1);
+  }
+}
+.item>div:first-child{
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  margin-left: 0;
+  img{
+    vertical-align: middle;
+    height: 50px;
+  }
+}
+.two>.item:nth-child(2n){
+  margin-left: 4%;
+}
+.plat{
+  margin-top: 150px;
+  text-align: left;
+  h3{
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 45px;
+  }
+  p{
+    font-size:18px;
+    color:rgba(102,102,102,1);
+    width: 80%;
+    margin-left: 20%;
+    line-height: 22px;
+  }
+  .learn{
+    float: right;
+    margin-top: 58px;
+  }
+}
+.check{
+  width: 80%;
+  margin-left: 20%;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+.check>div{
+  display: inline-block;
+  img{
+    margin-right: 5px;
+  }
+}
+.plat_pic{
+  div{
+    margin-bottom: 0px !important;
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+  .pic>img{
+    width: 45%;
+  }
+  .pic>img:nth-child(2){
+    margin-left: 10%;
+  }
+}
+.card_left{
+  div{
+    float: left;
+    width: 35%;
+    .cpic{
+      width: 100%;
+    }
+    .next{
+      margin-top: 100px;
+      float: right;
+    }
+  }
+  .card{
+    width: 45%;
+  }
+}
+.card{
+  width: 45%;
+  margin-left: 10%;
+  border-radius: 10px;
+  min-height: 300px;
+  height: 470px;
+  h6,p,div{
+    width: 90%;
+    text-align: left;
+    margin-left: 5%;
+  }
+  h6{
+    font-size:18px;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    margin-top: 20px;
+  }
+  p{
+    font-size:12px;
+    line-height: 16px;
+    color:rgba(102,102,102,1);
+    height: 120px;
+  }
+  img{
+    width: 100%;
+  }
+}
+.main>.card_list{
+  width: 50% !important;
+  margin-left: 0 !important;
+}
+.card_right{
+  div{
+    float: left;
+  }
+  .card:first-child{
+    margin: 0;
+  }
+}
+.footer{
+  text-align: center;
+  color: #333;
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 88px;
+  span{
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 32px 0;
+  }
+  .marks{
+    position: absolute;
+    left: 0;
+    width: 100px;
+    font-size:40px;
+    font-weight:bold;
+    padding: 0;
+    padding-top: 10px;
+  }
+}
+
+@media screen and (max-width: 1400px){
+  .menu{
+    width: 60%;
+    left: 40%;
+  }
+  .banner{
+    .rt{
+      width: 75%;
+    }
+  }
+}
+@media screen and (max-width: 1200px){
+  .main{
+      width: 80%;
+      margin: 0 auto;
+      .line1,.line2,.line3{
+        display: none;
+      }
+  }
+  .banner{
+    .box{
+      width: 80%;
+      margin: 0 auto;
+    }
+    p{
+      width: 100%;
+    }
+  }
+  .footer{
+    width: 100%;
+  }
+  .learn{
+    background-size: contain;
+  }
+}
+@media screen and (max-width: 1024px){
+  .card_left{
+    div{
+      width: 45%;
+    }
+    .card{
+      margin-left: 10%;
+      width: 45%;
+    }
+    .learn{
+      width: 100%;
+    }
+  }
+  .menu{
+    display: none;
+  }
+  .dropdown:hover .bropbtn {
+      background-color: #111;
+  }
+  .dropdown {
+      display: inline-block;
+      width: 50%;
+      height: 80px;
+      line-height: 80px;
+      text-align: right;
+      color: #fff;
+      position: relative;
+      top: -80px;
+      left: 50%;
+      padding-right: 30px;
+      z-index: 100;
+      img{
+        width: 30px;
+      }
+  }
+  .dropdown-content {
+      height: 50px;
+      line-height: 50px;
+      display: none;
+      position: absolute;
+      right: 30px;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      text-align: center;
+  }
+  .dropdown-content a {
+      color: black;
+      padding: 5px 5px;
+      text-decoration: none;
+      display: block;
+      background: #fff;
+  }
+  .dropdown-content a:hover {
+      background-color: #f1f1f1
+  }
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  .banner{
+    height: 900px;
+    .rt{
+      height: 900px;
+      width: 100%;
+      background: url(../../assets/images/index/banner2.png) right no-repeat;
+      background-size: cover;
+    }
+    .box{
+      position: relative;
+      top: -700px;
+      color: #fff;
+      div{
+        p{
+          color:#fff; 
+        }
+      }
+      .learn{
+        color: #333;
+      }
+    }
+  }
+  .main{
+    .ciot{
+      color: #fff;
+    }
+    .ciots{
+      width:90%;
+      margin:5%;
+    }
+  }
+  .item>div:first-child img{
+    height: 35px;
+  }
+  .two{
+    width: 100%;
+  }
+  .main>.two:nth-child(2){
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  .item>div:first-child img{
+    height: 45px;
+  }
+  .main>.card_list{
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  .card{
+    height: 520px;
+    h6{
+      height: 42px;
+    }
+  }
+  .cards{
+    margin-top: 150px;
+  }
+}
+@media screen and (max-width: 768px){
+  .two{
+    width: 100%;
+  }
+  .item>div:first-child img{
+    height: 35px;
+  }
+  .item>div{
+    width: 70%;
+  }
+  .footer{
+    .marks{
+      display: none;
+    }
+  }
+  .card{
+    height: 470px;
+  }
+  .banner{
+    .rt{
+      background: url(../../assets/images/index/banner2.png) center no-repeat;
+      background-size: cover;
+    }
+  }
+}
+@media screen and (max-width: 415px){
+  .card_left{
+    div{
+      width: 100%;
+      .next{
+        text-align: right;
+        margin-top: 30px;
+        img{
+          width: 30%;
+        }
+      }
+    }
+    .card{
+      width:100%;
+      margin-left: 0;
+    }
+  }
+  .card{
+    width: 100%;
+    height: 460px;
+    margin-left: 0;
+    margin-top: 20px;
+    h6{
+      font-size:13px;
+      height: 45px;
+    }
+    p{
+      font-size:12px;
+      height: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;      
+      /* autoprefixer: ignore next */
+      -webkit-box-orient: vertical;
+    }
+    .learn{
+      background-size:contain; 
+      span{
+        padding-left: 65px;
+        font-size: 13px;
+      }
+    }
+  }
+  .check{
+    display: block;
+  }
+  .banner{
+    height: 720px;
+    .rt{
+      height: 720px;
+    }
+    .box{
+      top: -580px;
+    }
+  }
+  .item{
+    margin-top: 10px;
+    div{
+      width: 100%;
+      margin-left: 0;
+      line-height: 20px;
+      margin: 5px 0;
+    }
+    p{
+      height: 75px;
+    }
+  }
+  .plat{
+    margin-top: 0px;
+    .learn{
+      margin-top: 30px;
+    }
+  }
+  .cards{
+    margin-top: 30px;
+  }
+  .main{
+    .ciots{
+      margin: 30px 5%;
+    }
+  }
+}
+
+
+.clearFloat{ zoom: 1;}/*设置或检索对象的缩放比例。*/
+.clearFloat:after{
+   display: block;
+   clear: both;/*清除两侧浮动*/
+   content: '';/*用来和 :after 及 :before 伪元素一起使用，在对象前或后显示内容。*/
+   visibility: hidden;/*规定元素是否可见。仍占位置*/
+   height: 0;
+}

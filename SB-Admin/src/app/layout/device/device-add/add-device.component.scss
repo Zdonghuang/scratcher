@@ -1,0 +1,107 @@
+#container{
+  padding: 40px;
+  height: 100%;
+  background-color: #fff;
+  div.content{
+    box-shadow: 0 0 4px #666;
+    padding: 20px;
+    h5{
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .box{
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      div.imgbox1{
+        p{
+          color: #666;
+          margin-left: 16px;
+          font-size: 14px;
+          word-wrap: break-word;
+        }
+        .tips{
+          color: #999;
+        }
+      }
+      >div{
+        position: relative;
+        label , .weight{
+          color: #333;
+          display: block;
+        }
+        input{
+          width: 40%;
+        }
+        select{
+          width: 40%;
+          padding-left: 36px;
+        }
+        img.flieimgs{
+          margin-left: 16px;
+        }
+        img.tree{
+          position: absolute;
+          top: 42px;
+          left: 14px;
+        }
+        select.option{
+          padding-left: 10px;
+        }
+        .pin{
+          width: 30%;
+          display: inline-block;
+        }
+        button{
+          margin-left: 20px;
+        }
+        .error{
+          margin: 0;
+          color: red;
+        }
+      }
+      .textcolor{
+        color: #666;
+        margin-left: 16px;
+        font-size: 14px;
+        word-wrap: break-word;
+        input{
+          width: 40%;
+        }
+      }
+      .textcolormargin{
+        color: #666;
+        margin-left: 20px;
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+.tiptext {
+  position: fixed;
+  background: rgba(65, 63, 63, 0.7);
+  top:50%;
+  left: 50%;
+  z-index: 100000000;
+  transform: translate(-50%,-50%);
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color:rgba(233, 164, 164, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}
+.create-btn{
+  border: none;
+  padding: 8.5px 30px;
+  background: -webkit-linear-gradient(left, #55ACC8 , #61C3E2); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #55ACC8 , #61C3E2); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #55ACC8 , #61C3E2); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #55ACC8 , #61C3E2); /* 标准的语法（必须放在最后） */
+  border: transparent;
+  color: #fff;
+  vertical-align: top;
+}
+.create-btn:hover{
+  background: #61C3E2;
+}

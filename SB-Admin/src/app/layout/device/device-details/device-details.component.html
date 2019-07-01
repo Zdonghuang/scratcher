@@ -1,0 +1,306 @@
+<div class="device-info">
+  <p class="devices">
+    <span (click)="goback()" class="back">Device</span>
+    <img src="../../../../assets/images/icon/next.png" alt="">
+    <span>{{DeviceDetails.model}}</span>
+  </p>
+  <div class="info-content">
+    <div>
+      <div class="ltop">
+        <div class="one">
+          <div class="info-row">
+            <div class="info-col35">
+              <p class="position">Device</p>
+              <p class="weight bottom sl">{{DeviceDetails.name}}</p>
+            </div>
+            <div class="info-col35">
+              <p class="position">Model</p>
+              <p class="weight bottom">{{DeviceDetails.model}}</p>
+              <!-- <button class="btn-sm roboot">
+                <i class="fa fa-refresh"></i>
+                <span>Reboot</span>
+              </button>
+              <button class="btn-sm roboots">
+                <i class="fa fa-refresh"></i>
+                <span>Reboot</span>
+              </button> -->
+            </div>
+            <div class="info-col3 imgs btns">
+              <p></p>
+              <div class="delbtns">
+                <!-- <img src="../../../../assets/images/icon/lamp.png" alt="">
+                <img src="../../../../assets/images/icon/sdown.png" alt=""> -->
+                <button class="down" (click)="showupload=true;getOneTime()"><i class="fa fa-cloud-upload"></i></button>
+                <button class="roll" disabled="{{DeviceDetails.status?'':'disabled'}}" (click)="unenroll(DeviceDetails.uuid)"></button>
+                <button class="del" disabled="{{DeviceDetails.status?'disabled':''}}" (click)="deletePredefinedDevice(DeviceDetails)" ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="two">
+          <div class="info-row">
+            <div class="info-col35 adds">
+              <form class="add">
+                <input type="text"  name="item" placeholder="Add Label"/>
+                <button>
+                  <i class="fa fa-plus"></i>
+                </button>
+              </form>
+            </div>
+            <div class="info-col35">
+              <div class="label">label</div>
+            </div>
+            <div class="info-col3 imgs">
+            </div>
+          </div>
+        </div> -->
+        <div class="three">
+          <div class="info-row">
+            <div class="info-col35">
+              <p>STATUS</p>
+              <p class="status bold">
+                <img src="../../../../assets/images/icon/yes.png" alt="" *ngIf="DeviceDetails.status">
+                <img src="../../../../assets/images/icon/no.png" alt="" *ngIf="!DeviceDetails.status">
+                <span class="font-position">Online</span>
+              </p>
+            </div>
+            <div class="info-col35">
+              <p>UUID</p>
+              <p class="bold sl">{{DeviceDetails.uuid}}</p>
+            </div>
+            <div class="info-col3">
+              <p>OS</p>
+              <p class="bold">{{DeviceDetails.os}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="five">
+          <div class="info-row" *ngIf="DeviceDetails.importType">
+            <!-- <div class="info-col35">
+              <p>IP</p>
+              <p class="sl bold">{{DeviceDetails.ip?DeviceDetails.ip:'unknown'}}</p>
+              <p>LAST ONLINE</p>
+              <p class="sl bold">Currently online(for 36minutes)</p>
+            </div>
+            <div class="info-col35">
+              <p>Position</p>
+              <p class="sl bold">{{DeviceDetails.position?DeviceDetails.position:'unknown'}}</p>
+              <p>HOST OS VERSION</p>
+              <p class="bold">
+                <span>Resin OS 2.22.1+rev1</span>
+                <img src="../../../../assets/images/icon/other.png" alt="" class="other">
+              </p>
+              <p class="orange">development</p>
+            </div>
+            <div class="info-col3">
+              <p>Capabilities</p>
+              <p class="sl bold">{{DeviceDetails.capabilities?DeviceDetails.capabilities:'unknown'}}</p>
+              <p>SUPERVISOR VERSION</p>
+              <p class="bold">
+                <span>7.25.3</span>
+                <img src="../../../../assets/images/icon/other.png" alt="" class="other">
+              </p>
+            </div> -->
+            <div class="info-col35">
+              <p>EnrollType</p>
+              <p class="sl bold">{{DeviceDetails.importType===0?'import':'enroll'}}</p>
+            </div>
+            <div class="info-col35">
+              <p>CurrentVersion</p>
+              <p class="sl bold">{{DeviceDetails.agentInfo}}</p>
+            </div>
+            <div class="info-col3">
+              <p>LatestVersion</p>
+              <p class="sl bold">{{DeviceDetails.latestAgentInfo}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="five">
+          <div class="info-row">
+            <div class="info-col35">
+              <p>CreateTime</p>
+              <p class="sl bold">{{DeviceDetails.createTime?format(DeviceDetails.createTime):'unknown'}}</p>
+              <!-- <p>RELEASE</p>
+              <p class="sl bold">Currently online(for 36minutes)</p> -->
+            </div>
+            <div class="info-col35">
+              <p>UpdateTime</p>
+              <p class="sl bold">{{DeviceDetails.updateTime?format(DeviceDetails.updateTime):'unknown'}}</p>
+              <!-- <p>LAST ONLINE</p>
+              <p class="red bold">192.168.43.2471</p> -->
+            </div>
+            <div class="info-col3">
+              <p>ActiveTime</p>
+              <p class="sl bold">{{DeviceDetails.activeTime?format(DeviceDetails.activeTime):'unknown'}}</p>
+              <!-- <p>PUBLIC DEVICE URL</p>
+              <div class="bold">
+                <div class="slide">
+                  <input type="checkbox" class="toggle">
+                  <div class="inner">
+                  </div>
+                </div>
+                <img src="../../../../assets/images/icon/other.png" alt="" class="other">
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!-- <div class="five">
+          <div class="info-row">
+            <div class="info-col">
+              <p>LAST ONLINE</p>
+              <input type="text" class="width">
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="lbottom">
+        <p>SERVICE</p>
+        <div class="table-content">
+          <div class="mb-2 table-device table-border table-responsive">
+            <table class="table table-hover table-striped detail-table">
+              <thead>
+                <tr>
+                  <th class="name">Service</th>
+                  <th>Status</th>
+                  <th>Release</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="name">data</td>
+                  <td class="status">
+                    <img src="../../../../assets/images/icon/yes.png" alt="" *ngIf="DeviceDetails.status">
+                    <img src="../../../../assets/images/icon/no.png" alt="" *ngIf="!DeviceDetails.status">
+                    <span class="font-position">running</span>
+                  </td>
+                  <td class="sm-show">
+                    b87eddf
+                  </td>
+                  <td>
+                    <div class="btn1"></div>&nbsp;
+                    <div class="btn2"></div>&nbsp;
+                    <div class="btn3"></div>&nbsp;
+                    <div class="btn4"></div>&nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="name">data</td>
+                  <td class="status">
+                    <img src="../../../../assets/images/icon/yes.png" alt="" *ngIf="DeviceDetails.status">
+                    <img src="../../../../assets/images/icon/no.png" alt="" *ngIf="!DeviceDetails.status">
+                    <span class="font-position">running</span>
+                  </td>
+                  <td class="sm-show">
+                    b87eddf
+                  </td>
+                  <td>
+                    <div class="btn1"></div>&nbsp;
+                    <div class="btn2"></div>&nbsp;
+                    <div class="btn3"></div>&nbsp;
+                    <div class="btn4"></div>&nbsp;
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-right">
+      <div class="log  br">
+        <span>Log</span>
+        <div>
+          <span>UTC</span>
+          <div class="slide mleft">
+            <input type="checkbox" class="toggle">
+            <div class="inner">
+            </div>
+          </div>
+        </div>
+        <div>
+          <span>Timestamps</span>
+          <div class="slide mleft">
+            <input type="checkbox" class="toggle">
+            <div class="inner">
+            </div>
+          </div>
+        </div>
+        <div class="imgs">
+          <!-- <img src="../../../../assets/images/icon/right1.png" alt=""> -->
+          <img src="../../../../assets/images/icon/right2.png" alt="">
+          <img src="../../../../assets/images/icon/right3.png" alt="">
+        </div>
+      </div>
+      <div class="fbox sm-show">
+        <div class="box1">
+          <div class="filter">
+            <img src="../../../../assets/images/icon/filter.png" alt=""/>
+            <span>Add filter</span>
+          </div>
+          <div class="search">
+            <img src="../../../../assets/images/icon/search.png" alt="">
+            <input type="text" placeholder="Search entrise...">
+          </div>
+          <div class="view">
+            <span>view</span>
+          </div>
+        </div>
+        <div class="box2">
+          <p>Logs are not available when your device is running in local mode</p>
+        </div>
+      </div>
+      <div class="fbox sm-shows">
+        <div>
+          <div class="box1">
+            <div class="filter">
+              <img src="../../../../assets/images/icon/filter.png" alt=""/>
+              <span>Add filter</span>
+            </div>
+            <div class="view">
+              <span>view</span>
+            </div>
+          </div>
+          <div class="search">
+            <img src="../../../../assets/images/icon/search.png" alt="">
+            <input type="text" placeholder="Search entrise...">
+          </div>
+        </div>
+        <div class="box2">
+          <p>Logs are not available when your device is running in local mode</p>
+        </div>
+      </div>
+      <div class="log">
+        <span>Terminal</span>
+        <div class="imgs">
+          <img src="../../../../assets/images/icon/right3.png" alt="">
+        </div>
+      </div>
+      <div class="fbox">
+        <div class="box3">
+          <div class="btn select-btn">
+            Select a target
+          </div>
+          <div class="btn start-btn">
+            Start teminal session
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bigbox" *ngIf="showupload">
+  <div class="ltbox">
+    <h5>Setting download and upgrade time</h5>
+    <br>
+    <!-- <div>
+        Download time: <input class="downloadtime" type="text" value="{{onetime}}" (change)="executionTime=$event.target.value">
+    </div> -->
+    <br>
+    <div>
+        Upgrade &nbsp;&nbsp;&nbsp;time: <input class="upgradetime" type="text" value="{{onetime}}" (change)="upgradeTime=$event.target.value">
+    </div>
+    <button class="btn-sm btn-primary closed" (click)="showupload=false"> close</button>
+    <button class="btn-sm btn-success done" (click)="upload()"> done</button>
+  </div>
+</div>

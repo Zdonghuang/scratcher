@@ -1,0 +1,14 @@
+<div id="container" [@routerTransition]>
+    <div class="step2">
+        <br>
+        <iframe name="nodered" src="/red" frameborder="0">go to Node-Red</iframe>
+        <br>
+        <br>
+        <button class="btn-sm btn-success ml-1" (click)="onSave()">Save</button>
+        <button class="btn-sm btn-warning back ml-1" (click)="onCancel()">Close</button>
+    </div>
+    <div *ngIf="showtext" class="tiptext">
+      {{text}}
+    </div>
+
+</div>

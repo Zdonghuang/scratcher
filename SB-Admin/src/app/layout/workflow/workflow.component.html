@@ -1,0 +1,93 @@
+<div>
+  <div class="create">
+    <p>Workflows</p>
+    <div class="change-type">
+      <button class="btn-sm btn-success create-btn" (click)="createWorkflow()">
+        <i class="fa fa-plus"></i>
+        <span>Create workflow</span>
+      </button>
+      <!-- <div class="change">
+        <img src="../../../../assets/images/icon/type1_s.png" alt="" *ngIf="showType==1" (click)="changeType(1)">
+        <img src="../../../../assets/images/icon/type1.png" alt="" *ngIf="showType==2" (click)="changeType(1)">
+        <img src="../../../../assets/images/icon/type2_s.png" alt="" *ngIf="showType==2" (click)="changeType(2)">
+        <img src="../../../../assets/images/icon/type2.png" alt="" *ngIf="showType==1" (click)="changeType(2)">
+      </div> -->
+    </div>
+  </div>
+  
+  <ng-template #startform let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{toStart?'Start workflow':'Stop workflow'}}</h4>
+    </div>
+    <div class="modal-body">
+        <!-- <label>Application</label>
+        <select class="form-control" id="applist" name="applist" [(ngModel)]="model.appId">
+            <option *ngFor="let app of applist" [value]="app.appId">{{app.name}}</option>
+        </select>
+        <br> -->
+
+        <label>Device</label><div *ngIf="paramNotReady" class="loader"></div>
+        <select class="form-control" id="devicelist" name="devicelist" [(ngModel)]="model.deviceId">
+            <option *ngFor="let dev of devicelist" [value]="dev.deviceId">{{dev.deviceName || dev.deviceId}}</option>
+        </select>
+        <br>
+
+        <!-- <label>User</label>
+        <input type="text" class="form-control" id="user-id" [(ngModel)]="model.userId">
+        <br> -->
+
+        <label *ngIf="toStart">Parameter (JSON)</label>
+        <textarea *ngIf="toStart" class="form-control text" rows="4" id="start-parameter" [(ngModel)]="model.startParam"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button *ngIf="!model.deviceId" type="button" class="btn btn-outline-dark" disabled>OK</button>
+      <button *ngIf="model.deviceId" type="button" class="btn btn-outline-dark" (click)="c('OK')">OK</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Cancel')">Cancel</button>
+    </div>
+  </ng-template>
+
+  <!-- <div *ngIf="showType==1"> -->
+  <div>
+    <div class="table-content">
+      <div class="mb-2 table-device table-responsive table-border">
+        <table class="table table-hover table-striped">
+          <thead>
+          <tr>
+              <th class="name">Name</th>
+              <th class="sm-show">ID</th>
+              <th>Status</th>
+              <th class="sm-show">Type</th>
+              <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let flow of workflows" >
+              <th scope="row" class="name data" (click)="detailWorkflow(flow.id)">{{flow.name}}</th>
+              <td class="sm-show">{{flow.id}}</td>
+              <td>{{flow.up}}</td>
+              <td class="sm-show">{{flow.type}}</td>
+              <td>
+                  <!-- <button class="btn-sm btn-primary ml-1" (click)="detailWorkflow(flow.id)"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                  <button *ngIf="showStartStopButtons(flow) && flow.up!=='off'" class="btn-sm btn-secondary ml-1" disabled><i class="fa fa-play" aria-hidden="true"></i></button>
+                  <button *ngIf="showStartStopButtons(flow) && flow.up==='off'" class="btn-sm btn-success ml-1" (click)="startWorkflow(flow.payloadId)"><i class="fa fa-play" aria-hidden="true"></i></button>
+                  <button *ngIf="showStartStopButtons(flow) && flow.up!=='on'" class="btn-sm btn-secondary ml-1" disabled><i class="fa fa-stop" aria-hidden="true"></i></button>
+                  <button *ngIf="showStartStopButtons(flow) && flow.up==='on'" class="btn-sm btn-dark ml-1" (click)="stopWorkflow(flow.payloadId)"><i class="fa fa-stop" aria-hidden="true"></i></button> -->
+                  <button *ngIf="showStartStopButtons(flow) && flow.up!=='off'" class="btn-sm play-btn" disabled></button>
+                  <button *ngIf="showStartStopButtons(flow) && flow.up==='off'" class="btn-sm play-btn" (click)="onStart(startform, flow.payloadId)"></button>
+                  <button *ngIf="showStartStopButtons(flow) && flow.up!=='on'" class="btn-sm stop-btn" disabled></button>
+                  <button *ngIf="showStartStopButtons(flow) && flow.up==='on'" class="btn-sm stop-btn" (click)="onStop(startform, flow.payloadId)"></button>
+                  <button class="btn-sm edit-btn" (click)="detailWorkflow(flow.id)"></button>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="center">
+      <ul class="page app-page">
+          <li *ngFor="let i of pages" class="pages {{i===curPage?'active':''}}" (click)="getPage(i)">{{i}}</li>
+      </ul>
+  </div>
+</div>

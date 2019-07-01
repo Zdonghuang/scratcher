@@ -1,0 +1,335 @@
+.pages{
+  float: left;
+  list-style: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid rgb(67, 155, 238);
+  line-height: 1.8rem;
+  text-align: center;
+  cursor: pointer;
+}
+.textalign{
+  text-align: center;
+}
+.active{
+  background-color: rgb(65, 89, 196);
+}
+.page {
+  margin-left: -36px;
+}
+.page li+li{
+  border-left: none;
+}
+.header{
+  height: 3rem;
+}
+.hand{
+  cursor: pointer;
+}
+.bigbox{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top:0%;
+  left: 0%;
+  height:100%;
+  width:100%;
+  z-index: 100000000;
+  overflow-y: auto;
+}
+.litbox{
+  background:#fff;
+  position: absolute;
+  border:1px solid #666;
+  border-radius: 4px;
+  top:50%;
+  left: 50%;
+  height:580px;
+  width:50%;
+  transform: translate(-50%,-50%);
+  z-index: 100000000;
+}
+.lbox{
+  background:#fff;
+  position: absolute;
+  border:1px solid #666;
+  border-radius: 4px;
+  top:50%;
+  left: 50%;
+  height:200px;
+  width:40%;
+  transform: translate(-50%,-50%);
+  z-index: 100000000;
+}
+.fr{
+  float: right;
+  width: 64%;
+  margin-right: 5%;
+  margin-top: 20px;
+}
+.fl{
+  margin: 26px 0 0 4%;
+}
+.cancel,.add{
+  position: absolute;
+  bottom: 30px;
+}
+.cancel{
+    right: 110px;
+}
+.add{
+  right: 5%;
+}
+.tiptext {
+  position: fixed;
+  background: rgba(65, 63, 63, 0.7);
+  top:50%;
+  left: 50%;
+  z-index: 100000000;
+  transform: translate(-50%,-50%);
+  line-height: 20px;
+  text-align: center;
+  border-radius: 5px;
+  color:rgba(233, 164, 164, 0.7);
+  padding: 10px;
+  box-sizing: border-box;
+}
+.green{
+  color: green;
+}
+
+
+
+.center{
+  width: 100%;
+  padding: 20px 40px;
+}
+.centers{
+  width: 96%;
+  margin: 0 auto;
+}
+.create{
+  text-align: left;
+  // margin-bottom: 30px;
+  padding: 20px 0;
+  // background-color: #fff;
+  p{
+    padding-left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+.create-btn{
+  padding: 10px 30px;
+  background: -webkit-linear-gradient(left, #55ACC8 , #61C3E2); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #55ACC8 , #61C3E2); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #55ACC8 , #61C3E2); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #55ACC8 , #61C3E2); /* 标准的语法（必须放在最后） */
+  border: transparent;
+  color: #fff;
+  i{
+    margin-right: 10px;
+  }
+}
+.create-btn:hover{
+  background: #61C3E2;
+}
+.change-type{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.change{
+  display: inline-block;
+}
+.change>img:first-child{
+  position: relative;
+  right: -2px;
+}
+.table-content{
+  padding: 10px 40px;
+  // background-color: #fff;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 400px;
+}
+.table-border{
+  border: none;
+}
+.table-title{
+  font-size: 26px;
+}
+.table-device{
+  width: 100%;
+}
+.font-position{
+  position: relative;
+  top: 2px;
+  margin-left: 3px;
+}
+.device-items{
+  background: #fff;
+  div{
+    font-size: 15px;
+    display: inline-block;
+    width: 70%;
+    vertical-align: text-top;
+    div{
+      margin-top: 40px;
+      display: block;
+      p{
+        margin-bottom: 0;
+      }
+      p:first-child{
+        margin-bottom: 12px;
+      }
+    }
+    div:first-child{
+      margin-top: 0;
+    }
+  }
+  div:last-child{
+    width: 30%;
+  }
+}
+.device-4{
+  display: inline-block;
+  width: 31.3%;
+  margin:1%;
+  padding: 30px 20px;
+}
+.device-btns{
+  button{
+    margin-top: 5px;
+  }
+  height: 152px;
+}
+.text-sl{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sm-show{
+  display: inline-block;
+}
+.enroll{
+  img{
+    position: relative;
+    top: -2px;
+    margin-right: 5px;
+  }
+}
+table .name{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.cursor{
+  cursor: not-allowed;
+}
+.send-btn{
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  background-image: url(../../../../assets/images/icon/send.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.send-btn:hover{
+  background-image: url(../../../../assets/images/icon/send-h.png);
+}
+.send-btn:disabled{
+  background-image: url(../../../../assets/images/icon/send-d.png);
+  cursor: default;
+}
+.send-btn:disabled:hover{
+  background-image: url(../../../../assets/images/icon/send-d.png);
+  cursor: default;
+}
+.info-btn{
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  background-image: url(../../../../assets/images/icon/detail.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.info-btn:hover{
+  background-image: url(../../../../assets/images/icon/detail-h.png);
+}
+button:hover{
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1024px){
+  .device-4{
+    display: inline-block;
+    width: 48%;
+    margin:1%;
+  }
+}
+@media screen and (max-width: 415px){
+  .device-4{
+    display: inline-block;
+    width: 98%;
+    margin: 1%;
+  }
+  .change-type{
+    padding-left: 15px;
+  }
+  .table-content{
+    padding: 10px 15px;
+  }
+  table{
+    td,th{
+      text-align: center;
+    }
+  }
+  .sm-show,.info-btn{
+    display: none;
+  }
+  .name{
+    display: inline-block;
+    width: 110px;
+    padding: 0.75rem 5px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+}
+
+
+.app-page{
+  float: right;
+  margin: 30px 0;
+}
+.pages{
+  float: left;
+  list-style: none;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #D2D2D2;
+  line-height: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.pages:hover{
+  box-shadow: inset 0 2px 2px #D2D2D2;
+}
+.page li+li{
+  border-left: none;
+}
+.active{
+  // background-color: rgb(65, 89, 196);
+  box-shadow: inset 0 2px 2px #D2D2D2; 
+}

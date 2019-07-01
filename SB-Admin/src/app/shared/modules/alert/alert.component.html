@@ -1,0 +1,22 @@
+<!-- The Modal -->
+<div id="myModal" class="modal" *ngIf="modalStatus" >
+  <!-- Modal content -->
+  <div class="modal-content" [@dialog] >
+    <div class="header" [style.background-color]="backColor">
+        <h3 >{{title}}</h3>
+      <span class="close" (click)="resolve()">×</span>
+    </div>
+    <div class="body">
+      <p>{{body}}</p>
+      <hr>
+    </div>
+    <div class="footer">
+      
+      <span class="footer-btn">
+        
+        <button class="btn btn-default" (click)="resolve()">OK</button>
+      </span>
+    </div>
+  </div>
+  
+</div>

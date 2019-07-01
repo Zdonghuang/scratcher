@@ -1,0 +1,35 @@
+<div>
+  <p class="settings_details">
+    <span (click)="goback()" class="back">Settings</span>
+    <img src="../../../../assets/images/icon/next.png" alt="">
+    <span>{{key}}</span>
+  </p>
+  <div class="litbox">
+      <div class="form-group first">
+        <label class="fl">subject：</label>
+        <input type="text" (change)="aService.payload.subject=$event.target.value" class="form-control fr" value="{{aService.payload.subject}}">
+      </div>
+      <div class="form-group first">
+        <label class="fl">smtpHost：</label>
+        <input type="text" class="form-control fr" (change)="aService.payload.smtpHost=$event.target.value" value="{{aService.payload.smtpHost}}">
+      </div>
+      <div class="form-group first">
+        <label class="fl">smtpPWD：</label>
+        <input type="text" (change)="aService.payload.smtpPWD=$event.target.value" class="form-control fr" value="{{aService.payload.smtpPWD}}">
+      </div>
+      <div class="form-group first">
+        <label class="fl">smtpUserName：</label>
+        <input type="text" (change)="aService.payload.smtpUserName=$event.target.value" class="form-control fr" value="{{aService.payload.smtpUserName}}">
+      </div>
+      <div class="form-group first">
+        <label class="fl">smtpPort：</label>
+        <input type="text" (change)="aService.payload.smtpPort=$event.target.value" class="form-control fr" value="{{aService.payload.smtpPort}}">
+      </div>
+      <br>
+      <a href="javascript:" id="reset" (click)="reset()"><i class="fa fa-undo"></i> &nbsp;reset</a>
+      <a href="javascript:" id="save" (click)="setAsetting()"><i class="fa fa-save"></i> &nbsp;save</a>
+  </div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>

@@ -1,0 +1,57 @@
+div.containers{
+  padding: 20px;
+  >h5{
+    font-size: 18px;
+    span{
+      font-weight: bold;
+    }
+    img{
+      margin: 0 10px;
+    }
+    .back{
+      cursor: pointer;
+      font-weight: normal;
+    }
+    .back:hover{
+      font-weight: bold;
+    }
+  }
+  >div.box{
+    margin: 20px 0 0 16px;
+    padding: 20px 40px;
+    width: 64%;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 0 0 4px #666;
+    position: relative;
+    word-wrap: break-word;
+    text-align: left;
+    >h6{
+      font-weight: 600;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+    }
+    >div.delete{
+      width:28px;
+      height:28px;
+      border:1px solid rgba(240, 58, 79, 0.678);
+      border-radius:2px;
+      text-align: center;
+      line-height: 28px;
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      cursor: pointer;
+      i{
+        color: rgba(242,132,144,1);
+      }
+    }
+    >p{
+      font-weight: 600;
+      >span{
+        font-weight: 400;
+        color: #666;
+      }
+    }
+  }
+}

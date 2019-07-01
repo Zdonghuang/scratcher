@@ -1,0 +1,25 @@
+<div>
+  <div class="header">
+    <span class="logo" (click)="router.navigate(['/index'])">Logo</span>
+  </div>
+  <br>
+  <br>
+  <div>
+    <h4 class="top">Mailbox verification</h4>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h5 *ngIf="show" class="top">
+      Please go to your email <span class="color"> {{email}} </span> for verification. If no mail is received, please click
+      <button class="btn-sm btn-link" (click)="sendemail()">E-mail sends</button>Send again.
+    </h5>
+    <h4 *ngIf="box" class="top">
+      <i class="fa fa-fw fa-check-square"></i>Mailbox verification has been completed. Thank you for your cooperation.
+      <h5>Jump to the home page in <span style="color:red">{{count}}</span> seconds</h5>
+    </h4>
+  </div>
+</div>
+<div *ngIf="showtext" class="tiptext">
+  {{text}}
+</div>
